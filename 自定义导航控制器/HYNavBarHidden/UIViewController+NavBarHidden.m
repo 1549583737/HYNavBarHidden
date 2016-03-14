@@ -15,10 +15,10 @@
 
 - (void)clearNavBar{
     
-    //清除背景图片
+    //设置一张空的图片
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc]init] forBarMetrics:UIBarMetricsDefault];
-
-    //清除阴影图片
+   
+    //清除边框，设置一张空的图片
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
 }
 
@@ -79,7 +79,7 @@ static CGFloat alpha = 0; //透明度
     }else{
         for (UIView * view in self.view.subviews) {
             
-            if ([view isEqual:self.keyScrollView] & [view isKindOfClass:[UITableView class]] || [view isKindOfClass:[UICollectionView class]]) {
+            if ([view isEqual:self.keyScrollView] & [view isKindOfClass:[UIScrollView class]]) {
                 
                 return (UIScrollView *)view;
             }

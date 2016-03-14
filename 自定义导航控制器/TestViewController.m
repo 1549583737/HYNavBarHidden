@@ -16,6 +16,8 @@
     
     [super viewDidLoad];
     
+//    self.view.backgroundColor
+    
     //清除默认导航条的背景颜色
     [self clearNavBar];
     
