@@ -34,7 +34,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     //rate将决定颜色变化程度,值越大,颜色变化越明显,rate的取值范围是0.01 - 0.999999
-    [self scrollControlRate:0.5 colorWithRed:0.0 green:1.0 blue:0.0 isNavBarItemAlpha:YES];
+    [self scrollControlRate:0.5 colorWithRed:0.0 green:1.0 blue:0.0 ];
 
 }
 

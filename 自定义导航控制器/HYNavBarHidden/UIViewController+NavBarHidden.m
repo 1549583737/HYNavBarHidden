@@ -24,8 +24,14 @@
 
 
 static CGFloat alpha = 0; //透明度
+static bool _isNavBarItemAlpha = YES; //默认导航条上的子标签跟着隐藏
 
-- (void)scrollControlRate:(CGFloat)rate colorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue isNavBarItemAlpha:(BOOL)isAlpha{
+- (void)setIsNavBarItemAlpha:(BOOL )isNavBarItemAlpha{
+    
+    _isNavBarItemAlpha = isNavBarItemAlpha;
+}
+
+- (void)scrollControlRate:(CGFloat)rate colorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue{
     
     //传值处理
     if (rate >= 1) {
@@ -55,7 +61,7 @@ static CGFloat alpha = 0; //透明度
     [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     
     //设置导航条上的标签为透明
-    if (isAlpha)
+    if (_isNavBarItemAlpha)
     {
         self.navigationItem.leftBarButtonItem.customView.alpha = alpha;
         self.navigationItem.titleView.alpha = alpha;
@@ -102,7 +108,7 @@ static const char * key = "keyScrollView";
     
     objc_setAssociatedObject(self, key, keyScrollView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    [self scrollControlRate:0.999999 colorWithRed:1 green:1 blue:1 isNavBarItemAlpha:YES];
+    [self scrollControlRate:0.999999 colorWithRed:1 green:1 blue:1];
 }
 
 @end

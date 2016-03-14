@@ -30,6 +30,9 @@
     //3.设置导航条内容
     [self setUpNavBar];
     
+    //4.导航条上的自定义的子标签是否需要跟着隐藏
+    self.isNavBarItemAlpha = NO;
+    
     //4.设置collectionView
     [self setUpCollectionView];
     
@@ -104,7 +107,7 @@
 #warning 监听滚动,调用框架接口
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
 
-    [self scrollControlRate:0.7 colorWithRed:1.0 green:0.0 blue:0.0 isNavBarItemAlpha:YES];
+    [self scrollControlRate:0.7 colorWithRed:1.0 green:0.0 blue:0.0];
 }
 
 
