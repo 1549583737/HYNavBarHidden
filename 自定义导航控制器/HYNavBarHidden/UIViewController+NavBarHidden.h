@@ -1,0 +1,21 @@
+//
+//  UIViewController+scrollerHidden.h
+//  自定义导航控制器
+//
+//  Created by HelloYeah on 16/3/12.
+//  Copyright © 2016年 HelloYeah--叶良. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface UIViewController (NavBarHidden)
+
+@property (nonatomic,weak) UIScrollView * keyScrollView;
+
+ /** 清除默认导航条的背景设置 */
+- (void)clearNavBar;
+
+/** rate将决定颜色变化程度,值越大,颜色变化越明显,rate的取值范围是0.01 - 0.999999 */
+- (void)scrollControlRate:(CGFloat)height colorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue isNavBarItemAlpha:(BOOL)isAlpha;
+
+@end

@@ -9,12 +9,17 @@
 /* Begin PBXBuildFile section */
 		F801D39C1C93AF6300D14345 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F801D39B1C93AF6300D14345 /* main.m */; };
 		F801D39F1C93AF6300D14345 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F801D39E1C93AF6300D14345 /* AppDelegate.m */; };
-		F801D3A21C93AF6300D14345 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F801D3A11C93AF6300D14345 /* ViewController.m */; };
 		F801D3A51C93AF6300D14345 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F801D3A31C93AF6300D14345 /* Main.storyboard */; };
 		F801D3A71C93AF6400D14345 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F801D3A61C93AF6400D14345 /* Assets.xcassets */; };
 		F801D3AA1C93AF6400D14345 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F801D3A81C93AF6400D14345 /* LaunchScreen.storyboard */; };
 		F801D3B51C93AF6400D14345 /* ________Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = F801D3B41C93AF6400D14345 /* ________Tests.m */; };
 		F801D3C01C93AF6400D14345 /* ________UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F801D3BF1C93AF6400D14345 /* ________UITests.m */; };
+		F8485AB31C93C18900A2158F /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8485AB21C93C18900A2158F /* TestViewController.m */; };
+		F8485ABC1C93D06100A2158F /* UIImage+imageFromColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F8485AB91C93D06100A2158F /* UIImage+imageFromColor.m */; };
+		F8485ABD1C93D06100A2158F /* UIViewController+NavBarHidden.m in Sources */ = {isa = PBXBuildFile; fileRef = F8485ABB1C93D06100A2158F /* UIViewController+NavBarHidden.m */; };
+		F8485AC01C93D3F400A2158F /* TestCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8485ABF1C93D3F400A2158F /* TestCollectionController.m */; };
+		F8506FAB1C9482BD00B90DB1 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F8506FAA1C9482BD00B90DB1 /* 1.jpg */; };
+		F8FC260F1C964006006878B3 /* Objective-C.gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F8FC260E1C964006006878B3 /* Objective-C.gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +44,6 @@
 		F801D39B1C93AF6300D14345 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F801D39D1C93AF6300D14345 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F801D39E1C93AF6300D14345 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F801D3A01C93AF6300D14345 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F801D3A11C93AF6300D14345 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F801D3A41C93AF6300D14345 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F801D3A61C93AF6400D14345 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F801D3A91C93AF6400D14345 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +54,16 @@
 		F801D3BB1C93AF6400D14345 /* 自定义导航控制器UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "自定义导航控制器UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F801D3BF1C93AF6400D14345 /* ________UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "________UITests.m"; sourceTree = "<group>"; };
 		F801D3C11C93AF6400D14345 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8485AB11C93C18900A2158F /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		F8485AB21C93C18900A2158F /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		F8485AB81C93D06100A2158F /* UIImage+imageFromColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+imageFromColor.h"; sourceTree = "<group>"; };
+		F8485AB91C93D06100A2158F /* UIImage+imageFromColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+imageFromColor.m"; sourceTree = "<group>"; };
+		F8485ABA1C93D06100A2158F /* UIViewController+NavBarHidden.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NavBarHidden.h"; sourceTree = "<group>"; };
+		F8485ABB1C93D06100A2158F /* UIViewController+NavBarHidden.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NavBarHidden.m"; sourceTree = "<group>"; };
+		F8485ABE1C93D3F400A2158F /* TestCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionController.h; sourceTree = "<group>"; };
+		F8485ABF1C93D3F400A2158F /* TestCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionController.m; sourceTree = "<group>"; };
+		F8506FAA1C9482BD00B90DB1 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		F8FC260E1C964006006878B3 /* Objective-C.gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Objective-C.gitignore"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,12 +114,14 @@
 		F801D3991C93AF6300D14345 /* 自定义导航控制器 */ = {
 			isa = PBXGroup;
 			children = (
-				F801D39D1C93AF6300D14345 /* AppDelegate.h */,
-				F801D39E1C93AF6300D14345 /* AppDelegate.m */,
-				F801D3A01C93AF6300D14345 /* ViewController.h */,
-				F801D3A11C93AF6300D14345 /* ViewController.m */,
+				F8485AB71C93D06100A2158F /* HYNavBarHidden */,
+				F8485AB11C93C18900A2158F /* TestViewController.h */,
+				F8485AB21C93C18900A2158F /* TestViewController.m */,
+				F8485ABE1C93D3F400A2158F /* TestCollectionController.h */,
+				F8485ABF1C93D3F400A2158F /* TestCollectionController.m */,
 				F801D3A31C93AF6300D14345 /* Main.storyboard */,
 				F801D3A61C93AF6400D14345 /* Assets.xcassets */,
+				F8506FAA1C9482BD00B90DB1 /* 1.jpg */,
 				F801D3A81C93AF6400D14345 /* LaunchScreen.storyboard */,
 				F801D3AB1C93AF6400D14345 /* Info.plist */,
 				F801D39A1C93AF6300D14345 /* Supporting Files */,
@@ -117,6 +132,9 @@
 		F801D39A1C93AF6300D14345 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F8FC260E1C964006006878B3 /* Objective-C.gitignore */,
+				F801D39D1C93AF6300D14345 /* AppDelegate.h */,
+				F801D39E1C93AF6300D14345 /* AppDelegate.m */,
 				F801D39B1C93AF6300D14345 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -138,6 +156,17 @@
 				F801D3C11C93AF6400D14345 /* Info.plist */,
 			);
 			path = "自定义导航控制器UITests";
+			sourceTree = "<group>";
+		};
+		F8485AB71C93D06100A2158F /* HYNavBarHidden */ = {
+			isa = PBXGroup;
+			children = (
+				F8485AB81C93D06100A2158F /* UIImage+imageFromColor.h */,
+				F8485AB91C93D06100A2158F /* UIImage+imageFromColor.m */,
+				F8485ABA1C93D06100A2158F /* UIViewController+NavBarHidden.h */,
+				F8485ABB1C93D06100A2158F /* UIViewController+NavBarHidden.m */,
+			);
+			path = HYNavBarHidden;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,8 +273,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F801D3AA1C93AF6400D14345 /* LaunchScreen.storyboard in Resources */,
+				F8506FAB1C9482BD00B90DB1 /* 1.jpg in Resources */,
 				F801D3A71C93AF6400D14345 /* Assets.xcassets in Resources */,
 				F801D3A51C93AF6300D14345 /* Main.storyboard in Resources */,
+				F8FC260F1C964006006878B3 /* Objective-C.gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,9 +301,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F801D3A21C93AF6300D14345 /* ViewController.m in Sources */,
 				F801D39F1C93AF6300D14345 /* AppDelegate.m in Sources */,
+				F8485ABC1C93D06100A2158F /* UIImage+imageFromColor.m in Sources */,
 				F801D39C1C93AF6300D14345 /* main.m in Sources */,
+				F8485AC01C93D3F400A2158F /* TestCollectionController.m in Sources */,
+				F8485AB31C93C18900A2158F /* TestViewController.m in Sources */,
+				F8485ABD1C93D06100A2158F /* UIViewController+NavBarHidden.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +530,7 @@
 				F801D3C61C93AF6400D14345 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F801D3C71C93AF6400D14345 /* Build configuration list for PBXNativeTarget "自定义导航控制器Tests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +539,7 @@
 				F801D3C91C93AF6400D14345 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F801D3CA1C93AF6400D14345 /* Build configuration list for PBXNativeTarget "自定义导航控制器UITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +548,7 @@
 				F801D3CC1C93AF6400D14345 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

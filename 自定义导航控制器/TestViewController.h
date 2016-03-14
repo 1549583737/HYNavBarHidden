@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TestViewController.h
 //  自定义导航控制器
 //
 //  Created by HelloYeah on 16/3/12.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface TestViewController : UITableViewController
 
 @end
-
