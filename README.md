@@ -1,5 +1,5 @@
 # HYNavBarHidden
-
+详细使用方法,原理说明,链接http://www.jianshu.com/p/b8b70afeda81
 下面这个界面有没有觉得很眼熟。打开你手里的App仔细观察，你会发现很多都有实现这个功能。比如美团外卖的首页模块，新浪微博的个人详情页面。要怎么样才能快速的实现这个功能呢！那下面由笔者来告诉你如何三行代码，集成这个功能。。。
 
 ![2.gif](http://upload-images.jianshu.io/upload_images/1338042-cf64012c1e1dc210.gif?imageMogr2/auto-orient/strip)
