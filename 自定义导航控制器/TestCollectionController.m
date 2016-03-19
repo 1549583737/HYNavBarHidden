@@ -107,9 +107,21 @@
 #warning 监听滚动,调用框架接口
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
 
-    [self scrollControlRate:0.7 colorWithRed:1.0 green:0.0 blue:0.0];
+    [self scrollControl];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
+    [self scrollControl];
+    
+}
+- (void)scrollControl{
+    
+    //rate将决定颜色变化程度,值越大,颜色变化越明显,rate的取值范围是0.01 - 0.999999
+    [self scrollControlRate:0.5 colorWithRed:1.0 green:0.0 blue:0.0 ];
+}
 
 #pragma mark - 数据源方法
 

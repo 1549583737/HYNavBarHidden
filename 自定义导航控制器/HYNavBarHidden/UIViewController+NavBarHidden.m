@@ -124,12 +124,9 @@ static const char * key = "keyScrollView";
     
     objc_setAssociatedObject(self, key, keyScrollView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-        [self scrollControlRate:0.999999 colorWithRed:1 green:1 blue:1];
-        NSLog(@"zzzz");
 
-//    });
+    [self scrollControlRate:0.999999 colorWithRed:1 green:1 blue:1];
+
     
 }
 
