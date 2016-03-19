@@ -13,8 +13,8 @@
 /** 需要监听的view */
 @property (nonatomic,weak) UIScrollView * keyScrollView;
 
-/** 导航条上的标签是否需要跟着隐藏  */
-@property (nonatomic,assign) BOOL  isNavBarItemAlpha;
+/** 设置导航条上的标签是否需要跟着隐藏  */
+- (void)setIsNavBarItemAlpha:(BOOL )isNavBarItemAlpha;
 
  /** 清除默认导航条的背景设置 */
 - (void)clearNavBar;

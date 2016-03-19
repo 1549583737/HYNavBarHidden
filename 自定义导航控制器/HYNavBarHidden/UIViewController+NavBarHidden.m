@@ -13,6 +13,12 @@
 
 @implementation UIViewController (NavBarHidden)
 
+static CGFloat alpha = 0; //透明度
+
+static bool _isNavBarItemAlpha = YES; //默认导航条上的子标签跟着隐藏
+
+
+//清空默认导航条背景
 - (void)clearNavBar{
     
     //设置一张空的图片
@@ -20,16 +26,26 @@
    
     //清除边框，设置一张空的图片
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
+
+    
 }
 
 
-static CGFloat alpha = 0; //透明度
-static bool _isNavBarItemAlpha = YES; //默认导航条上的子标签跟着隐藏
 
+
+//导航条上的子控件是否要跟着透明变化
 - (void)setIsNavBarItemAlpha:(BOOL )isNavBarItemAlpha{
     
     _isNavBarItemAlpha = isNavBarItemAlpha;
+   
 }
+
+//
+//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
+//    
+//    NSLog(@"%@",change);
+//}
+
 
 - (void)scrollControlRate:(CGFloat)rate colorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue{
     
@@ -108,7 +124,13 @@ static const char * key = "keyScrollView";
     
     objc_setAssociatedObject(self, key, keyScrollView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    [self scrollControlRate:0.999999 colorWithRed:1 green:1 blue:1];
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+        [self scrollControlRate:0.999999 colorWithRed:1 green:1 blue:1];
+        NSLog(@"zzzz");
+
+//    });
+    
 }
 
 @end

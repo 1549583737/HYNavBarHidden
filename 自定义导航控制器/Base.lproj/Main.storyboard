@@ -1100,12 +1100,35 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="jc5-PT-pWr">
-                        <barButtonItem key="rightBarButtonItem" title="push" id="YZi-BO-Zj3"/>
+                        <barButtonItem key="rightBarButtonItem" title="push" id="YZi-BO-Zj3">
+                            <connections>
+                                <segue destination="xWK-CY-RQl" kind="push" id="00W-tL-W71"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v2q-ZP-RYi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1744.5" y="-1370.5"/>
+        </scene>
+        <!--pushVc-->
+        <scene sceneID="usm-oO-qXX">
+            <objects>
+                <viewController id="xWK-CY-RQl" customClass="PushVc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TH3-Eh-bLz"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZT9-ih-IWC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c1p-V0-T5E">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="pushVc" id="9SG-z0-nPY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ag7-N7-6C0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2289" y="-1476"/>
         </scene>
         <!--Item-->
         <scene sceneID="g41-TF-XwH">

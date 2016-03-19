@@ -31,7 +31,7 @@
     [self setUpNavBar];
     
     //4.导航条上的自定义的子标签是否需要跟着隐藏
-    self.isNavBarItemAlpha = NO;
+    [self  setIsNavBarItemAlpha:NO];
     
     //4.设置collectionView
     [self setUpCollectionView];
