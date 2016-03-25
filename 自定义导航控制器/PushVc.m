@@ -17,10 +17,6 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor greenColor];
-    
-    UIImage * image = [UIImage imageFromColor:[UIColor whiteColor]];
-    
-    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
 }
 
 

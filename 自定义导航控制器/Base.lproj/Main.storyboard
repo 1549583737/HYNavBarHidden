@@ -1150,25 +1150,6 @@
             </objects>
             <point key="canvasLocation" x="1190.5" y="-1282.5"/>
         </scene>
-        <!--第三个控制器-->
-        <scene sceneID="Ykx-HC-XNX">
-            <objects>
-                <viewController id="c7Y-S3-b5R" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="tnu-cK-xJ2"/>
-                        <viewControllerLayoutGuide type="bottom" id="Q2S-mX-fS7"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="zO3-hK-YHQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="第三个控制器" id="8eg-ys-RVN"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SiS-H5-Agv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1791.5" y="-506.5"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="3Ug-O9-8zl">
             <objects>
@@ -1183,7 +1164,6 @@
                         <segue destination="0Vy-Cs-QGr" kind="relationship" relationship="viewControllers" id="hSo-k1-l5A"/>
                         <segue destination="WeO-vX-57O" kind="relationship" relationship="viewControllers" id="zAj-Ef-dQB"/>
                         <segue destination="CQw-LJ-2eX" kind="relationship" relationship="viewControllers" id="D9m-bX-fGj"/>
-                        <segue destination="nFX-uX-f67" kind="relationship" relationship="viewControllers" id="khd-Bs-Nfj"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T3j-cd-YV7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1209,26 +1189,7 @@
             </objects>
             <point key="canvasLocation" x="1218.5" y="320.5"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="9u2-h1-cSC">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nFX-uX-f67" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="qic-x6-s8C"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Osx-R9-jgt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="c7Y-S3-b5R" kind="relationship" relationship="rootViewController" id="TKj-fN-zhC"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VJY-Wv-dLR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1195.5" y="-490.5"/>
-        </scene>
-        <!--第四个控制器-->
+        <!--第三个控制器-->
         <scene sceneID="TOd-iJ-b1a">
             <objects>
                 <tableViewController id="kDK-tD-fZa" sceneMemberID="viewController">
@@ -1398,7 +1359,7 @@
                             <outlet property="delegate" destination="kDK-tD-fZa" id="7hI-ie-S3m"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="第四个控制器" id="f9A-P5-Uss"/>
+                    <navigationItem key="navigationItem" title="第三个控制器" id="f9A-P5-Uss"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bOy-bn-iRT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -20,17 +20,14 @@
 -(void)viewDidLoad{
     
     [super viewDidLoad];
-        
-    //1.清除默认导航条的背景颜色
-    [self clearNavBar];
-    
-    //2设置当有导航栏自动添加64的高度的属性为NO
+
+    //1.设置当有导航栏自动添加64的高度的属性为NO
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    //3.设置导航条内容
+    //2.设置导航条内容
     [self setUpNavBar];
     
-    //4.导航条上的自定义的子标签是否需要跟着隐藏
+    //3.导航条上的自定义的子标签是否需要跟着隐藏
     [self  setIsNavBarItemAlpha:NO];
     
     //4.设置collectionView
@@ -43,6 +40,25 @@
 }
 
 
+#warning 监听滚动,调用框架接口
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    //rate将决定颜色变化程度,值越大,颜色变化越明显,rate的取值范围是0.01 - 0.999999
+    [self scrollControlRate:0.5 colorWithRed:1.0 green:0.0 blue:0.0 ];
+    
+}
+- (void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    [self setInViewWillAppear];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    
+    [super viewWillDisappear:animated];
+    [self setInViewWillDisappear];
+}
+
 - (void)setUpNavBar{
 
     UIButton * addBtn = [UIButton buttonWithType:UIButtonTypeContactAdd];
@@ -53,6 +69,7 @@
     self.navigationItem.titleView = titleLabel;
 }
 
+#pragma mark - custom method
 //初始化CollectionView
 - (void)setUpCollectionView{
     
@@ -82,12 +99,7 @@
         
 }
 
-//设置状态栏颜色为白色
-- (UIStatusBarStyle)preferredStatusBarStyle{
-    
-    NSLog(@"//设置状态栏颜色为白色zzzzz");
-    return UIStatusBarStyleLightContent;
-}
+
 
 //设置头部视图
 - (void)setHeaderView{
@@ -102,26 +114,6 @@
     [self.collectionView addSubview:imageView];
 }
 
-
-
-#warning 监听滚动,调用框架接口
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-
-    [self scrollControl];
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    
-    [super viewWillAppear:animated];
-    
-    [self scrollControl];
-    
-}
-- (void)scrollControl{
-    
-    //rate将决定颜色变化程度,值越大,颜色变化越明显,rate的取值范围是0.01 - 0.999999
-    [self scrollControlRate:0.5 colorWithRed:1.0 green:0.0 blue:0.0 ];
-}
 
 #pragma mark - 数据源方法
 
@@ -140,8 +132,5 @@
     return cell;
     
 }
-
-
-
 
 @end
