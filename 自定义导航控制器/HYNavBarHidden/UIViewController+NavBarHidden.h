@@ -16,8 +16,10 @@
 /** 设置导航条上的标签是否需要跟着隐藏  */
 - (void)setIsNavBarItemAlpha:(BOOL )isNavBarItemAlpha;
 
- /** 清除默认导航条的背景设置 */
-- (void)clearNavBar;
+/** 清除默认导航条的背景设置 */
+- (void)setInViewWillAppear;
+- (void)setInViewWillDisappear;
+
 
 /** rate将决定颜色变化程度,值越大,颜色变化越明显,rate的取值范围是0.01 - 0.999999 */
 - (void)scrollControlRate:(CGFloat)height colorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue ;

@@ -10,6 +10,14 @@
 #import <objc/runtime.h>
 #import "UIImage+imageFromColor.h"
 
+typedef struct {
+    
+    CGFloat rate;
+    CGFloat red;
+    CGFloat green;
+    CGFloat blue;
+}scrollControl;
+
 
 @implementation UIViewController (NavBarHidden)
 
@@ -18,36 +26,18 @@ static CGFloat alpha = 0; //透明度
 static bool _isNavBarItemAlpha = YES; //默认导航条上的子标签跟着隐藏
 
 
-//清空默认导航条背景
-- (void)clearNavBar{
-    
-    //设置一张空的图片
-    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc]init] forBarMetrics:UIBarMetricsDefault];
-   
-    //清除边框，设置一张空的图片
-    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
-
-    
-}
-
-
-
-
 //导航条上的子控件是否要跟着透明变化
 - (void)setIsNavBarItemAlpha:(BOOL )isNavBarItemAlpha{
     
     _isNavBarItemAlpha = isNavBarItemAlpha;
-   
+    
 }
 
-//
-//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
-//    
-//    NSLog(@"%@",change);
-//}
-
+static scrollControl  SC;
 
 - (void)scrollControlRate:(CGFloat)rate colorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue{
+    
+    SC = (scrollControl){rate,red,green,blue};
     
     //传值处理
     if (rate >= 1) {
@@ -71,10 +61,12 @@ static bool _isNavBarItemAlpha = YES; //默认导航条上的子标签跟着隐�
         alpha = 0.00001;
     }
     
+    
     //设置背景图片
     UIImage * image = [UIImage imageFromColor:[UIColor colorWithRed:red green:green blue:blue  alpha:alpha]];
     
     [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    
     
     //设置导航条上的标签为透明
     if (_isNavBarItemAlpha)
@@ -87,17 +79,18 @@ static bool _isNavBarItemAlpha = YES; //默认导航条上的子标签跟着隐�
 }
 
 
+
 // 获取tableView 或者 collectionView
 - (UIScrollView *)getScrollerView{
-
+    
     if ([self isKindOfClass:[UITableViewController class]]) {
-
+        
         return  (UIScrollView *)self.view;
         
     }else if ([self isKindOfClass:[UICollectionViewController class]]){
-
+        
         return  (UIScrollView *)self.view;
-
+        
     }else{
         for (UIView * view in self.view.subviews) {
             
@@ -123,11 +116,33 @@ static const char * key = "keyScrollView";
 - (void)setKeyScrollView:(UIScrollView *)keyScrollView{
     
     objc_setAssociatedObject(self, key, keyScrollView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
+}
 
-    [self scrollControlRate:0.999999 colorWithRed:1 green:1 blue:1];
 
+- (void)setInViewWillAppear{
     
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        [self scrollControlRate:0.999999 colorWithRed:1 green:1 blue:1];
+        
+    });
+    
+    //设置一张空的图片
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc]init] forBarMetrics:UIBarMetricsDefault];
+    
+    //清除边框，设置一张空的图片
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
+    
+    [self scrollControlRate:SC.rate colorWithRed:SC.red green:SC.green blue:SC.blue];
+    
+    
+}
+
+- (void)setInViewWillDisappear{
+    
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:nil];
 }
 
 @end
