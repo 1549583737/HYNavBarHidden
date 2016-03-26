@@ -8,13 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+typedef struct {
+    
+    BOOL isLeftAlpha;
+    BOOL isTitleAlpha;
+    BOOL isRightAlpha;
+    
+}HYBarItemAlphaControl;
+
 @interface UIViewController (NavBarHidden)
 
 /** 需要监听的view */
 @property (nonatomic,weak) UIScrollView * keyScrollView;
 
 /** 设置导航条上的标签是否需要跟着隐藏  */
-- (void)setIsNavBarItemAlpha:(BOOL )isNavBarItemAlpha;
+- (void)setBarItemAlphaControl:(HYBarItemAlphaControl)isBarItemAlphaControl;
 
 /** 清除默认导航条的背景设置 */
 - (void)setInViewWillAppear;

@@ -1100,10 +1100,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="jc5-PT-pWr">
-                        <barButtonItem key="rightBarButtonItem" title="push" id="YZi-BO-Zj3">
-                            <connections>
-                                <segue destination="xWK-CY-RQl" kind="push" id="00W-tL-W71"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="doU-id-i9f">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kBe-5E-5Rq">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="push"/>
+                                <connections>
+                                    <segue destination="xWK-CY-RQl" kind="push" id="jQI-cN-d7t"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>

@@ -23,13 +23,13 @@ typedef struct {
 
 static CGFloat alpha = 0; //透明度
 
-static bool _isNavBarItemAlpha = YES; //默认导航条上的子标签跟着隐藏
-
+//默认导航条上的子标签跟着透明,默认透明
+static HYBarItemAlphaControl _isBarItemAlphaControl = {YES,YES,YES};
 
 //导航条上的子控件是否要跟着透明变化
-- (void)setIsNavBarItemAlpha:(BOOL )isNavBarItemAlpha{
+- (void)setBarItemAlphaControl:(HYBarItemAlphaControl )isBarItemAlphaControl{
     
-    _isNavBarItemAlpha = isNavBarItemAlpha;
+    _isBarItemAlphaControl = isBarItemAlphaControl;
     
 }
 
@@ -69,13 +69,12 @@ static scrollControl  SC;
     
     
     //设置导航条上的标签为透明
-    if (_isNavBarItemAlpha)
-    {
-        self.navigationItem.leftBarButtonItem.customView.alpha = alpha;
-        self.navigationItem.titleView.alpha = alpha;
-        self.navigationItem.rightBarButtonItem.customView.alpha = alpha;
-    }
     
+    self.navigationItem.leftBarButtonItem.customView.alpha = _isBarItemAlphaControl.isLeftAlpha?alpha:1;
+    
+    self.navigationItem.titleView.alpha = _isBarItemAlphaControl.isTitleAlpha?alpha:1;
+    
+    self.navigationItem.rightBarButtonItem.customView.alpha = _isBarItemAlphaControl.isRightAlpha?alpha:1;
 }
 
 
@@ -103,7 +102,6 @@ static scrollControl  SC;
     return nil;
 }
 
-
 #pragma mark - 通过运行时动态添加keyScrollView属性
 //定义关联的Key
 static const char * key = "keyScrollView";
@@ -123,7 +121,7 @@ static const char * key = "keyScrollView";
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        
+    
         [self scrollControlRate:0.999999 colorWithRed:1 green:1 blue:1];
         
     });
@@ -135,7 +133,6 @@ static const char * key = "keyScrollView";
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
     
     [self scrollControlRate:SC.rate colorWithRed:SC.red green:SC.green blue:SC.blue];
-    
     
 }
 

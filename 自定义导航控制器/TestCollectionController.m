@@ -27,8 +27,8 @@
     //2.设置导航条内容
     [self setUpNavBar];
     
-    //3.导航条上的自定义的子标签是否需要跟着隐藏
-    [self  setIsNavBarItemAlpha:NO];
+    //3.导航条上的自定义的子标签是否需要跟着隐藏,只对自定义的view有效果.对系统默认的无效
+    [self  setBarItemAlphaControl:(HYBarItemAlphaControl){0,1,1}];
     
     //4.设置collectionView
     [self setUpCollectionView];
