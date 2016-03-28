@@ -10,11 +10,7 @@
 #import <objc/runtime.h>
 
 @interface UIViewController ()
-
 @property (nonatomic,strong) UIImage  * navBarBackgroundImage;
-
-@property (nonatomic,assign) CGFloat  navBarAlpha;
-
 @end
 
 @implementation UIViewController (NavBarHidden)
@@ -56,17 +52,6 @@ static const char * isLeftAlphaKey = "isLeftAlpha";
 }
 
 //定义关联的Key
-static const char * navBarAlphaKey = "navBarAlpha";
-- (CGFloat)navBarAlpha{
-
-    return [objc_getAssociatedObject(self,navBarAlphaKey) floatValue];
-}
-- (void)setNavBarAlpha:(CGFloat)navBarAlpha{
-    
-    objc_setAssociatedObject(self, navBarAlphaKey, @(navBarAlpha), OBJC_ASSOCIATION_ASSIGN);
-//    self.navigationController.navigationBar.alpha = navBarAlpha;
-}
-//定义关联的Key
 static const char * isRightAlphaKey = "isRightAlpha";
 - (BOOL)isRightAlpha{
     
@@ -89,9 +74,12 @@ static const char * isTitleAlphaKey = "isTitleAlpha";
 
 #pragma mark - custom方法
 
+
+static CGFloat alpha = 0;
 //透明度
 - (void)scrollControlRate:(CGFloat)rate{
-
+    
+    
     //传值处理
     if (rate >= 1) {
         rate = 0.999999;
@@ -105,21 +93,18 @@ static const char * isTitleAlphaKey = "isTitleAlpha";
     if ([self getScrollerView]){
         
         UIScrollView * scrollerView = [self getScrollerView];
-        self.navBarAlpha =  scrollerView.contentOffset.y/height;
+        alpha =  scrollerView.contentOffset.y/height;
     }
-    self.navBarAlpha = (self.navBarAlpha <= 0)?0.00001:self.navBarAlpha;
- 
-    
-    
+    alpha = (alpha <= 0)?0.000001:alpha;
+    alpha = (alpha >= 1)?0.999999:alpha;
+    NSLog(@"%f",alpha);
     //设置导航条上的标签是否跟着透明
-    self.navigationItem.leftBarButtonItem.customView.alpha = self.isLeftAlpha?self.navBarAlpha:1;
-    self.navigationItem.titleView.alpha = self.isTitleAlpha?self.navBarAlpha:1;
-    self.navigationItem.rightBarButtonItem.customView.alpha = self.isRightAlpha?self.navBarAlpha:1;
+    self.navigationItem.leftBarButtonItem.customView.alpha = self.isLeftAlpha?alpha:1;
+    self.navigationItem.titleView.alpha = self.isTitleAlpha?alpha:1;
+    self.navigationItem.rightBarButtonItem.customView.alpha = self.isRightAlpha?alpha:1;
     
-    [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:self.navBarAlpha];
+    [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:alpha];
 }
-
-
 
 // 获取tableView 或者 collectionView
 - (UIScrollView *)getScrollerView{
@@ -141,7 +126,7 @@ static const char * isTitleAlphaKey = "isTitleAlpha";
 
 
 - (void)setInViewWillAppear{
-    
+    NSLog(@"%f",alpha);
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
     
@@ -158,9 +143,8 @@ static const char * isTitleAlphaKey = "isTitleAlpha";
 }
 
 - (void)setInViewWillDisappear{
-    
+    NSLog(@"%f",alpha);
     [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:1];
-
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
 }
