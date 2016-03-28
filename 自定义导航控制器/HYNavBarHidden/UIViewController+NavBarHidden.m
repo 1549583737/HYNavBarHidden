@@ -56,10 +56,6 @@ static const char * isTitleAlphaKey = "isTitleAlpha";
 
 #pragma mark - custom方法
 
-
-
-
-
 static CGFloat alpha = 0; //透明度
 - (void)scrollControlRate:(CGFloat)rate{
 
