@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="1117.5" y="-2183.5"/>
         </scene>
-        <!--HelloYeah-->
+        <!--Test View Controller-->
         <scene sceneID="2zq-XN-oMt">
             <objects>
                 <tableViewController id="Fpw-wB-05n" customClass="TestViewController" sceneMemberID="viewController">
@@ -1080,11 +1080,21 @@
                             <outlet property="delegate" destination="Fpw-wB-05n" id="wzJ-B9-Y3o"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="HelloYeah" id="lq7-Gk-cn8"/>
+                    <navigationItem key="navigationItem" id="lq7-Gk-cn8">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Nvm-ZV-UBk">
+                            <rect key="frame" x="113" y="7" width="150" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <state key="normal" title="HelloYeah">
+                                <color key="titleColor" red="0.99215686270000003" green="0.47843137250000001" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                        </button>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rlc-iM-hqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1843.5" y="-2199.5"/>
+            <point key="canvasLocation" x="1770.5" y="-2193.5"/>
         </scene>
         <!--Test Collection Controller-->
         <scene sceneID="c4I-jA-2iS">
@@ -1104,7 +1114,9 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kBe-5E-5Rq">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="push"/>
+                                <state key="normal" title="push">
+                                    <color key="titleColor" red="0.1957589187733641" green="0.95936986019736847" blue="0.93533214310357549" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="xWK-CY-RQl" kind="push" id="jQI-cN-d7t"/>
                                 </connections>
@@ -1114,7 +1126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v2q-ZP-RYi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1744.5" y="-1370.5"/>
+            <point key="canvasLocation" x="1819.5" y="-1332.5"/>
         </scene>
         <!--pushVc-->
         <scene sceneID="usm-oO-qXX">
@@ -1133,7 +1145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ag7-N7-6C0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2289" y="-1476"/>
+            <point key="canvasLocation" x="2392.5" y="-1268.5"/>
         </scene>
         <!--Item-->
         <scene sceneID="g41-TF-XwH">
@@ -1192,7 +1204,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BAU-fo-ytS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1218.5" y="320.5"/>
+            <point key="canvasLocation" x="1190.5" y="-447.5"/>
         </scene>
         <!--第三个控制器-->
         <scene sceneID="TOd-iJ-b1a">
@@ -1368,7 +1380,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bOy-bn-iRT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1809.5" y="340.5"/>
+            <point key="canvasLocation" x="1809.5" y="-371.5"/>
         </scene>
     </scenes>
 </document>

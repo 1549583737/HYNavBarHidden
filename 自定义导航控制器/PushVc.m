@@ -8,8 +8,6 @@
 
 #import "PushVc.h"
 
-#import "UIImage+imageFromColor.h"
-
 @implementation PushVc
 
 - (void)viewDidLoad{
@@ -17,6 +15,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor greenColor];
+    
 }
 
 

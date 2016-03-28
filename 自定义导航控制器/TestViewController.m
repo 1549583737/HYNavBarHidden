@@ -21,7 +21,7 @@
     
     //设置tableView的头部视图
     UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 0, 250)];
-    imageView.image = [UIImage imageNamed:@"1.jpg"];
+    imageView.image = [UIImage imageNamed:@"lol"];
     self.tableView.tableHeaderView = imageView;
     
 }
@@ -29,7 +29,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
-      [self scrollControlRate:0.5 colorWithRed:0.0 green:1.0 blue:0.0 ];
+      [self scrollControlRate:0.5];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

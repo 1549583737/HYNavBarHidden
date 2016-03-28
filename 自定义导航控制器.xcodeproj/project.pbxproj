@@ -15,7 +15,6 @@
 		F801D3B51C93AF6400D14345 /* ________Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = F801D3B41C93AF6400D14345 /* ________Tests.m */; };
 		F801D3C01C93AF6400D14345 /* ________UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F801D3BF1C93AF6400D14345 /* ________UITests.m */; };
 		F8485AB31C93C18900A2158F /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8485AB21C93C18900A2158F /* TestViewController.m */; };
-		F8485ABC1C93D06100A2158F /* UIImage+imageFromColor.m in Sources */ = {isa = PBXBuildFile; fileRef = F8485AB91C93D06100A2158F /* UIImage+imageFromColor.m */; };
 		F8485ABD1C93D06100A2158F /* UIViewController+NavBarHidden.m in Sources */ = {isa = PBXBuildFile; fileRef = F8485ABB1C93D06100A2158F /* UIViewController+NavBarHidden.m */; };
 		F8485AC01C93D3F400A2158F /* TestCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8485ABF1C93D3F400A2158F /* TestCollectionController.m */; };
 		F8506FAB1C9482BD00B90DB1 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F8506FAA1C9482BD00B90DB1 /* 1.jpg */; };
@@ -57,8 +56,6 @@
 		F801D3C11C93AF6400D14345 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8485AB11C93C18900A2158F /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		F8485AB21C93C18900A2158F /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
-		F8485AB81C93D06100A2158F /* UIImage+imageFromColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+imageFromColor.h"; sourceTree = "<group>"; };
-		F8485AB91C93D06100A2158F /* UIImage+imageFromColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+imageFromColor.m"; sourceTree = "<group>"; };
 		F8485ABA1C93D06100A2158F /* UIViewController+NavBarHidden.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NavBarHidden.h"; sourceTree = "<group>"; };
 		F8485ABB1C93D06100A2158F /* UIViewController+NavBarHidden.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NavBarHidden.m"; sourceTree = "<group>"; };
 		F8485ABE1C93D3F400A2158F /* TestCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionController.h; sourceTree = "<group>"; };
@@ -166,8 +163,6 @@
 		F8485AB71C93D06100A2158F /* HYNavBarHidden */ = {
 			isa = PBXGroup;
 			children = (
-				F8485AB81C93D06100A2158F /* UIImage+imageFromColor.h */,
-				F8485AB91C93D06100A2158F /* UIImage+imageFromColor.m */,
 				F8485ABA1C93D06100A2158F /* UIViewController+NavBarHidden.h */,
 				F8485ABB1C93D06100A2158F /* UIViewController+NavBarHidden.m */,
 			);
@@ -307,7 +302,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F801D39F1C93AF6300D14345 /* AppDelegate.m in Sources */,
-				F8485ABC1C93D06100A2158F /* UIImage+imageFromColor.m in Sources */,
 				F801D39C1C93AF6300D14345 /* main.m in Sources */,
 				F8485AC01C93D3F400A2158F /* TestCollectionController.m in Sources */,
 				F8485AB31C93C18900A2158F /* TestViewController.m in Sources */,

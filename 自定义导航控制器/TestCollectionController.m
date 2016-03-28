@@ -27,8 +27,9 @@
     //2.设置导航条内容
     [self setUpNavBar];
     
-    //3.导航条上的自定义的子标签是否需要跟着隐藏,只对自定义的view有效果.对系统默认的无效
-    [self  setBarItemAlphaControl:(HYBarItemAlphaControl){0,1,1}];
+    //3.导航条上的自定义的子标签是否需要跟着隐藏.
+    self.isTitleAlpha = YES;
+    self.isLeftAlpha = YES;
     
     //4.设置collectionView
     [self setUpCollectionView];
@@ -36,7 +37,7 @@
     //5.告诉程序是根据哪个scrollView的滚动来控制状态栏的变化
     self.keyScrollView = self.collectionView;
     
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+  
 }
 
 
@@ -44,7 +45,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
     //rate将决定颜色变化程度,值越大,颜色变化越明显,rate的取值范围是0.01 - 0.999999
-    [self scrollControlRate:0.5 colorWithRed:1.0 green:0.0 blue:0.0 ];
+    [self scrollControlRate:0.5];
     
 }
 - (void)viewWillAppear:(BOOL)animated{
@@ -59,6 +60,10 @@
     [self setInViewWillDisappear];
 }
 
+
+#pragma mark - custom method
+
+
 - (void)setUpNavBar{
 
     UIButton * addBtn = [UIButton buttonWithType:UIButtonTypeContactAdd];
@@ -67,9 +72,11 @@
     titleLabel.text = @"HelloYeah";
     [titleLabel sizeToFit];
     self.navigationItem.titleView = titleLabel;
+    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"2"] forBarMetrics:UIBarMetricsDefault];
 }
 
-#pragma mark - custom method
+
 //初始化CollectionView
 - (void)setUpCollectionView{
     
