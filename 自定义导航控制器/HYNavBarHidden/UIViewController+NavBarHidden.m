@@ -97,7 +97,7 @@ static CGFloat alpha = 0;
     }
     alpha = (alpha <= 0)?0.000001:alpha;
     alpha = (alpha >= 1)?0.999999:alpha;
-    NSLog(@"%f",alpha);
+
     //设置导航条上的标签是否跟着透明
     self.navigationItem.leftBarButtonItem.customView.alpha = self.isLeftAlpha?alpha:1;
     self.navigationItem.titleView.alpha = self.isTitleAlpha?alpha:1;
@@ -126,7 +126,7 @@ static CGFloat alpha = 0;
 
 
 - (void)setInViewWillAppear{
-    NSLog(@"%f",alpha);
+
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
     
@@ -143,7 +143,7 @@ static CGFloat alpha = 0;
 }
 
 - (void)setInViewWillDisappear{
-    NSLog(@"%f",alpha);
+
     [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:1];
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
