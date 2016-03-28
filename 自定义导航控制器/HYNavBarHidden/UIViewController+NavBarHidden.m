@@ -9,6 +9,14 @@
 #import "UIViewController+NavBarHidden.h"
 #import <objc/runtime.h>
 
+@interface UIViewController ()
+
+@property (nonatomic,strong) UIImage  * navBarBackgroundImage;
+
+@property (nonatomic,assign) CGFloat  navBarAlpha;
+
+@end
+
 @implementation UIViewController (NavBarHidden)
 
 #pragma mark - 通过运行时动态添加存储属性
@@ -16,6 +24,8 @@
 static const char * key = "keyScrollView";
 
 - (UIScrollView *)keyScrollView{
+   
+    
     return objc_getAssociatedObject(self, key);
 }
 
@@ -24,14 +34,37 @@ static const char * key = "keyScrollView";
 }
 
 //定义关联的Key
+static const char * navBarBackgroundImageKey = "navBarBackgroundImage";
+
+- (UIImage *)navBarBackgroundImage{
+    return objc_getAssociatedObject(self, navBarBackgroundImageKey);
+}
+
+- (void)setNavBarBackgroundImage:(UIImage *)navBarBackgroundImage{
+    objc_setAssociatedObject(self, navBarBackgroundImageKey, navBarBackgroundImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+//定义关联的Key
 static const char * isLeftAlphaKey = "isLeftAlpha";
 - (BOOL)isLeftAlpha{
-
+    
     return [objc_getAssociatedObject(self,isLeftAlphaKey) boolValue];
 }
 - (void)setIsLeftAlpha:(BOOL)isLeftAlpha{
     
     objc_setAssociatedObject(self, isLeftAlphaKey, @(isLeftAlpha), OBJC_ASSOCIATION_ASSIGN);
+}
+
+//定义关联的Key
+static const char * navBarAlphaKey = "navBarAlpha";
+- (CGFloat)navBarAlpha{
+
+    return [objc_getAssociatedObject(self,navBarAlphaKey) floatValue];
+}
+- (void)setNavBarAlpha:(CGFloat)navBarAlpha{
+    
+    objc_setAssociatedObject(self, navBarAlphaKey, @(navBarAlpha), OBJC_ASSOCIATION_ASSIGN);
+//    self.navigationController.navigationBar.alpha = navBarAlpha;
 }
 //定义关联的Key
 static const char * isRightAlphaKey = "isRightAlpha";
@@ -56,7 +89,7 @@ static const char * isTitleAlphaKey = "isTitleAlpha";
 
 #pragma mark - custom方法
 
-static CGFloat alpha = 0; //透明度
+//透明度
 - (void)scrollControlRate:(CGFloat)rate{
 
     //传值处理
@@ -72,16 +105,18 @@ static CGFloat alpha = 0; //透明度
     if ([self getScrollerView]){
         
         UIScrollView * scrollerView = [self getScrollerView];
-        alpha =  scrollerView.contentOffset.y/height;
+        self.navBarAlpha =  scrollerView.contentOffset.y/height;
     }
-    alpha = (alpha <= 0)?0.00001:alpha;
+    self.navBarAlpha = (self.navBarAlpha <= 0)?0.00001:self.navBarAlpha;
  
-    [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:alpha];
+    
     
     //设置导航条上的标签是否跟着透明
-    self.navigationItem.leftBarButtonItem.customView.alpha = self.isLeftAlpha?alpha:1;
-    self.navigationItem.titleView.alpha = self.isTitleAlpha?alpha:1;
-    self.navigationItem.rightBarButtonItem.customView.alpha = self.isRightAlpha?alpha:1;
+    self.navigationItem.leftBarButtonItem.customView.alpha = self.isLeftAlpha?self.navBarAlpha:1;
+    self.navigationItem.titleView.alpha = self.isTitleAlpha?self.navBarAlpha:1;
+    self.navigationItem.rightBarButtonItem.customView.alpha = self.isRightAlpha?self.navBarAlpha:1;
+    
+    [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:self.navBarAlpha];
 }
 
 
@@ -90,18 +125,13 @@ static CGFloat alpha = 0; //透明度
 - (UIScrollView *)getScrollerView{
     
     if ([self isKindOfClass:[UITableViewController class]]) {
-        
         return  (UIScrollView *)self.view;
-        
     }else if ([self isKindOfClass:[UICollectionViewController class]]){
-        
         return  (UIScrollView *)self.view;
-        
     }else{
         for (UIView * view in self.view.subviews) {
             
             if ([view isEqual:self.keyScrollView] & [view isKindOfClass:[UIScrollView class]]) {
-                
                 return (UIScrollView *)view;
             }
         }
@@ -116,10 +146,11 @@ static CGFloat alpha = 0; //透明度
     dispatch_once(&onceToken, ^{
     
         [self scrollControlRate:0.999999];
+        self.navBarBackgroundImage = [self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault];
 
     });
     //设置背景图片
-    [self.navigationController.navigationBar setBackgroundImage:[self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:self.navBarBackgroundImage forBarMetrics:UIBarMetricsDefault];
     //清除边框，设置一张空的图片
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
     [self scrollControlRate:1];
@@ -128,6 +159,8 @@ static CGFloat alpha = 0; //透明度
 
 - (void)setInViewWillDisappear{
     
+    [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:1];
+
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
 }
