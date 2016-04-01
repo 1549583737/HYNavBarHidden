@@ -77,23 +77,13 @@ static const char * isTitleAlphaKey = "isTitleAlpha";
 
 static CGFloat alpha = 0;
 //透明度
-- (void)scrollControlRate:(CGFloat)rate{
+- (void)scrollControlByOffsetY:(CGFloat)offsetY{
     
-    
-    //传值处理
-    if (rate >= 1) {
-        rate = 0.999999;
-    }else if(rate <= 0.000001){
-        rate = 0.000001;
-    }
-    
-    //根据滚动距离计算透明度
-    CGFloat height = (1 - rate) * [UIScreen mainScreen].bounds.size.height;
     
     if ([self getScrollerView]){
         
         UIScrollView * scrollerView = [self getScrollerView];
-        alpha =  scrollerView.contentOffset.y/height;
+        alpha =  scrollerView.contentOffset.y/offsetY;
     }
     alpha = (alpha <= 0)?0.000001:alpha;
     alpha = (alpha >= 1)?0.999999:alpha;
@@ -130,7 +120,7 @@ static CGFloat alpha = 0;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
     
-        [self scrollControlRate:0.999999];
+        [self scrollControlByOffsetY:0.00001];
         self.navBarBackgroundImage = [self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault];
 
     });
@@ -138,7 +128,7 @@ static CGFloat alpha = 0;
     [self.navigationController.navigationBar setBackgroundImage:self.navBarBackgroundImage forBarMetrics:UIBarMetricsDefault];
     //清除边框，设置一张空的图片
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
-    [self scrollControlRate:1];
+    [self scrollControlByOffsetY:0.00001];
     
 }
 

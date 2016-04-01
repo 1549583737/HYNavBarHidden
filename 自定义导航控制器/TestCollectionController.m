@@ -45,7 +45,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
     //rate将决定颜色变化程度,值越大,颜色变化越明显,rate的取值范围是0.01 - 0.999999
-    [self scrollControlRate:0.5];
+    [self scrollControlByOffsetY:600];
     
 }
 - (void)viewWillAppear:(BOOL)animated{
@@ -61,7 +61,7 @@
 }
 
 
-#pragma mark - custom method
+#pragma mark - UI设置
 
 
 - (void)setUpNavBar{

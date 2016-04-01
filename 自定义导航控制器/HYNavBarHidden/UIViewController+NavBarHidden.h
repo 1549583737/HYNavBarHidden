@@ -13,7 +13,7 @@
 /** 需要监听的view */
 @property (nonatomic,weak) UIScrollView * keyScrollView;
 
-/** 设置导航条上的标签是否需要跟着隐藏  */
+/** 设置导航条上的标签是否需要跟随滚动变化透明度,默认不会跟随滚动变化透明度 */
 @property (nonatomic,assign) BOOL  isLeftAlpha;
 @property (nonatomic,assign) BOOL  isTitleAlpha;
 @property (nonatomic,assign) BOOL  isRightAlpha;
@@ -23,7 +23,7 @@
 - (void)setInViewWillDisappear;
 
 
-/** rate将决定颜色变化程度,值越大,颜色变化越明显,rate的取值范围是0.000001 - 0.999999 */
-- (void)scrollControlRate:(CGFloat)rate;
+/** 偏移offsetY的距离后,导航条的alpha为1 */
+- (void)scrollControlByOffsetY:(CGFloat)offsetY;
 
 @end
