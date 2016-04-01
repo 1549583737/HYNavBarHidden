@@ -128,7 +128,8 @@ static CGFloat alpha = 0;
     [self.navigationController.navigationBar setBackgroundImage:self.navBarBackgroundImage forBarMetrics:UIBarMetricsDefault];
     //清除边框，设置一张空的图片
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
-    [self scrollControlByOffsetY:0.00001];
+    self.keyScrollView.contentOffset = CGPointMake(0, self.keyScrollView.contentOffset.y + 1);
+    self.keyScrollView.contentOffset = CGPointMake(0, self.keyScrollView.contentOffset.y - 1);
     
 }
 
