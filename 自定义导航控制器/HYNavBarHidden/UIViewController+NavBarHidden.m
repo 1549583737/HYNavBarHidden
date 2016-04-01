@@ -18,10 +18,8 @@
 #pragma mark - 通过运行时动态添加存储属性
 //定义关联的Key
 static const char * key = "keyScrollView";
-
 - (UIScrollView *)keyScrollView{
    
-    
     return objc_getAssociatedObject(self, key);
 }
 
@@ -31,7 +29,6 @@ static const char * key = "keyScrollView";
 
 //定义关联的Key
 static const char * navBarBackgroundImageKey = "navBarBackgroundImage";
-
 - (UIImage *)navBarBackgroundImage{
     return objc_getAssociatedObject(self, navBarBackgroundImageKey);
 }
@@ -72,21 +69,21 @@ static const char * isTitleAlphaKey = "isTitleAlpha";
     objc_setAssociatedObject(self, isTitleAlphaKey, @(isTitleAlpha), OBJC_ASSOCIATION_ASSIGN);
 }
 
-#pragma mark - custom方法
-
+#pragma mark - 核心代码-即对外接口功能实现代码
 
 static CGFloat alpha = 0;
 //透明度
 - (void)scrollControlByOffsetY:(CGFloat)offsetY{
     
-    
     if ([self getScrollerView]){
         
         UIScrollView * scrollerView = [self getScrollerView];
         alpha =  scrollerView.contentOffset.y/offsetY;
+    }else{
+        return;
     }
-    alpha = (alpha <= 0)?0.000001:alpha;
-    alpha = (alpha >= 1)?0.999999:alpha;
+    alpha = (alpha <= 0)?0:alpha;
+    alpha = (alpha >= 1)?1:alpha;
 
     //设置导航条上的标签是否跟着透明
     self.navigationItem.leftBarButtonItem.customView.alpha = self.isLeftAlpha?alpha:1;
@@ -96,6 +93,31 @@ static CGFloat alpha = 0;
     [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:alpha];
 }
 
+- (void)setInViewWillAppear{
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+    
+        self.navBarBackgroundImage = [self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault];
+    });
+    //设置背景图片
+    [self.navigationController.navigationBar setBackgroundImage:self.navBarBackgroundImage forBarMetrics:UIBarMetricsDefault];
+    //清除边框，设置一张空的图片
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
+    
+    [self getScrollerView].contentOffset = CGPointMake(0, self.keyScrollView.contentOffset.y - 1);
+    [self getScrollerView].contentOffset = CGPointMake(0, self.keyScrollView.contentOffset.y + 1);
+    
+}
+
+- (void)setInViewWillDisappear{
+
+    [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:1];
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:nil];
+}
+
+#pragma mark - 内部方法
 // 获取tableView 或者 collectionView
 - (UIScrollView *)getScrollerView{
     
@@ -112,32 +134,6 @@ static CGFloat alpha = 0;
         }
     }
     return nil;
-}
-
-
-- (void)setInViewWillAppear{
-
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-    
-        [self scrollControlByOffsetY:0.00001];
-        self.navBarBackgroundImage = [self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault];
-
-    });
-    //设置背景图片
-    [self.navigationController.navigationBar setBackgroundImage:self.navBarBackgroundImage forBarMetrics:UIBarMetricsDefault];
-    //清除边框，设置一张空的图片
-    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
-    self.keyScrollView.contentOffset = CGPointMake(0, self.keyScrollView.contentOffset.y + 1);
-    self.keyScrollView.contentOffset = CGPointMake(0, self.keyScrollView.contentOffset.y - 1);
-    
-}
-
-- (void)setInViewWillDisappear{
-
-    [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:1];
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:nil];
 }
 
 @end
