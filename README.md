@@ -1,6 +1,6 @@
 # HYNavBarHidden
 详细使用方法,原理说明,欢迎大家关注笔者简书链接http://www.jianshu.com/p/ac237ebcd4fb.
-####在这给大家推荐一个非常好用的图片轮播组件.是目前笔者发现封装得最好的图片轮播器.代码十分值得学习借鉴,github链接https://github.com/codingZero/XRCarouselView
+#####在这给大家推荐一个非常好用的图片轮播组件.是目前笔者发现封装得最好的图片轮播器.代码十分值得学习借鉴,github链接https://github.com/codingZero/XRCarouselView
 
 ###导读
 
