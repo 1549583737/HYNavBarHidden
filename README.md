@@ -6,6 +6,7 @@
 
 ###### 下面这个界面有没有觉得很眼熟。打开你手里的App仔细观察，你会发现很多都有实现这个功能。比如美团外卖的首页模块，新浪微博的个人详情页面。要怎么样才能快速的实现这个功能呢！花了点时间在原先的基础上进行了一个优化.使用起来更加方便,接口更清晰.希望看了我的demo对大家以后实现类似功能有所帮助..
 .
+####在这给大家推荐一个非常好用的图片轮播组件.是目前笔者发现封装得最好的图片轮播器.代码十分值得学习借鉴,github链接https://github.com/codingZero/XRCarouselView
 ![1.gif](http://upload-images.jianshu.io/upload_images/1338042-b49f8c85cef44460.gif?imageMogr2/auto-orient/strip)
 ### 原理介绍：
  
