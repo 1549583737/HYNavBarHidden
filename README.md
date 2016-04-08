@@ -18,7 +18,7 @@
 # HYNavBarHidden的常用属性方法
 ---
 ####属性
-1.keyScrollView:当一个控制器中有多个ScrollView,要指明是监听哪个ScrollView的滚动
+1.keyScrollView:当控制器中有多个ScrollView时,要指明是监听哪个ScrollView的滚动
 
 2.导航条中item是否跟着渐隐,分别设置左边,中间,右边三个的BOOL值.默认为NO	
 
