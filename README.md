@@ -18,8 +18,11 @@
 # HYNavBarHidden的常用属性方法
 ---
 ####属性
+
 1. keyScrollView:当一个控制器中有多个ScrollView,要指明是监听哪个ScrollView的滚动
+
 2.导航条中item是否跟着渐隐,分别设置左边,中间,右边三个的BOOL值.默认为NO	
+
 	/** 设置导航条上的标签是否需要跟随滚动变化透明度,默认不会跟随滚动变化透明度 */
 	@property (nonatomic,assign) BOOL  isLeftAlpha;
 	@property (nonatomic,assign) BOOL  isTitleAlpha;
@@ -29,7 +32,9 @@
 
 
 ###方法说明  (push或者pop控制器时,消除或回复导航条状态)
+
 4.方法setInViewWillAppear : 
+
 5.方法setInViewWillDisappear :
 
 #效果演示
