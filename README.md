@@ -18,8 +18,7 @@
 # HYNavBarHidden的常用属性方法
 ---
 ####属性
-
-1. keyScrollView:当一个控制器中有多个ScrollView,要指明是监听哪个ScrollView的滚动
+1.keyScrollView:当一个控制器中有多个ScrollView,要指明是监听哪个ScrollView的滚动
 
 2.导航条中item是否跟着渐隐,分别设置左边,中间,右边三个的BOOL值.默认为NO	
 
@@ -41,8 +40,7 @@
 ---
 ![1.gif](http://upload-images.jianshu.io/upload_images/1338042-b49f8c85cef44460.gif?imageMogr2/auto-orient/strip)
 
-###在这给大家推荐一个非常好用的图片轮播组件.是目前笔者发现封装得最好的图片轮播器.代码十分值得学习借鉴,github链接https://github.com/codingZero/XRCarouselView
+###最好在这给大家推荐一个极为好用的图片轮播器.是目前笔者发现封装得最好的图片轮播器之一.代码十分值得学习借鉴,github链接https://github.com/codingZero/XRCarouselView
 
-#效果演示
----
-https://camo.githubusercontent.com/314a7cae39cce63008d7f212614b1bf51e06da3a/687474703a2f2f7777312e73696e61696d672e636e2f6c617267652f62363832333261316777316632673636746338766b67323061643035623774662e676966
+
+
