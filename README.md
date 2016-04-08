@@ -1,7 +1,10 @@
 # HYNavBarHidden分类
 ---
+
 超简单好用的监听滚动,导航条渐隐的UI效果实现(时下最流行的UI效果之一)
+
 使用过程中发现bug请先下载最新版，若bug依旧存在，请及时反馈，谢谢
+
 详细使用方法,原理说明,欢迎大家关注笔者简书链接http://www.jianshu.com/p/ac237ebcd4fb.
 
 #HYNavBarHidden的优点
