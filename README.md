@@ -11,7 +11,7 @@
 
 
 # 分类介绍
-* ###### 我写的这个分类不仅可以在系统的UITableViewController 和UICollectionViewController中使用，（系统的只需调用分类中两个方法即可）。而且当你的UIViewController中有1个或多个可以垂直滚动的scrollView都可以使用。（需要告诉控制器需要监听哪个scrollView的滚动，即设置keyScrollView）.
+###### 我写的这个分类不仅可以在系统的UITableViewController 和UICollectionViewController中使用，（系统的只需调用分类中两个方法即可）。而且当你的UIViewController中有1个或多个可以垂直滚动的scrollView都可以使用。（需要告诉控制器需要监听哪个scrollView的滚动，即设置keyScrollView）.
 
 
 # 看一下分类对外提供的接口
