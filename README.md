@@ -27,14 +27,16 @@
 	@property (nonatomic,assign) BOOL  isTitleAlpha;
 	@property (nonatomic,assign) BOOL  isRightAlpha;
 
-3.opaqueOffsetY:偏移大于等于offsetY时,导航条的alpha为1,完全不透明
+3.scrolOffsetY:偏移大于等于scrolOffsetY时,导航条的alpha为1,完全不透明
 
 
 ###方法  (push或者pop控制器时,消除或回复导航条状态)
 
-4.方法setInViewWillAppear : 
+4.- (void)setInViewWillAppear 在控制器的viewWillAppear:方法中调用
 
-5.方法setInViewWillDisappear :
+5.- (void)setInViewWillDisappear 在控制器的viewWillDisappear:方法中调用
+ 
+6.- (void)scrollControl 在scrollView代理方法中调用
 
 #效果演示
 ---
