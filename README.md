@@ -31,7 +31,7 @@
 3.opaqueOffsetY:偏移大于等于offsetY时,导航条的alpha为1,完全不透明
 
 
-###方法说明  (push或者pop控制器时,消除或回复导航条状态)
+###方法  (push或者pop控制器时,消除或回复导航条状态)
 
 4.方法setInViewWillAppear : 
 
