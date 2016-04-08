@@ -27,26 +27,24 @@
     //2.设置导航条内容
     [self setUpNavBar];
     
-    //3.导航条上的自定义的子标签是否需要跟着隐藏.
+    //3.Y轴偏移大于600时完全不透明
+    self.scrolOffsetY = 600;
+    
+    //4.导航条上的自定义的子标签是否需要跟着隐藏.
     self.isTitleAlpha = YES;
     self.isLeftAlpha = YES;
     
-    //4.设置collectionView
+    //5.设置collectionView
     [self setUpCollectionView];
     
-    //5.告诉程序是根据哪个scrollView的滚动来控制状态栏的变化
+    //6.告诉程序是根据哪个scrollView的滚动来控制状态栏的变化
     self.keyScrollView = self.collectionView;
     
-  
 }
 
-
-#warning 监听滚动,调用框架接口
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
-    //rate将决定颜色变化程度,值越大,颜色变化越明显,rate的取值范围是0.01 - 0.999999
-    [self scrollControlByOffsetY:600];
-    
+    [self scrollControl];
 }
 - (void)viewWillAppear:(BOOL)animated{
     
@@ -63,7 +61,6 @@
 
 #pragma mark - UI设置
 
-
 - (void)setUpNavBar{
 
     UIButton * addBtn = [UIButton buttonWithType:UIButtonTypeContactAdd];
@@ -71,6 +68,7 @@
     UILabel * titleLabel =[[UILabel alloc]init];
     titleLabel.text = @"HelloYeah";
     [titleLabel sizeToFit];
+    titleLabel.textColor = [UIColor redColor];
     self.navigationItem.titleView = titleLabel;
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"2"] forBarMetrics:UIBarMetricsDefault];

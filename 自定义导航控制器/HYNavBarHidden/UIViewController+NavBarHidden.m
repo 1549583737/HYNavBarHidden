@@ -15,7 +15,7 @@
 
 @implementation UIViewController (NavBarHidden)
 
-#pragma mark - 通过运行时动态添加存储属性
+#pragma mark - ************* 通过运行时动态添加存储属性 ******************
 //定义关联的Key
 static const char * key = "keyScrollView";
 - (UIScrollView *)keyScrollView{
@@ -35,6 +35,17 @@ static const char * navBarBackgroundImageKey = "navBarBackgroundImage";
 
 - (void)setNavBarBackgroundImage:(UIImage *)navBarBackgroundImage{
     objc_setAssociatedObject(self, navBarBackgroundImageKey, navBarBackgroundImage, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+//定义关联的Key
+static const char * scrolOffsetYKey = "offsetY";
+- (CGFloat)scrolOffsetY{
+    
+    return [objc_getAssociatedObject(self, scrolOffsetYKey) floatValue];
+}
+
+- (void)setScrolOffsetY:(CGFloat)scrolOffsetY{
+    objc_setAssociatedObject(self, scrolOffsetYKey, @(scrolOffsetY), OBJC_ASSOCIATION_ASSIGN);
 }
 
 //定义关联的Key
@@ -69,16 +80,16 @@ static const char * isTitleAlphaKey = "isTitleAlpha";
     objc_setAssociatedObject(self, isTitleAlphaKey, @(isTitleAlpha), OBJC_ASSOCIATION_ASSIGN);
 }
 
-#pragma mark - 核心代码-即对外接口功能实现代码
+#pragma mark - **************** 核心代码-即对外接口功能实现代码 ******************
 
 static CGFloat alpha = 0;
 //透明度
-- (void)scrollControlByOffsetY:(CGFloat)offsetY{
+- (void)scrollControl{
     
     if ([self getScrollerView]){
         
         UIScrollView * scrollerView = [self getScrollerView];
-        alpha =  scrollerView.contentOffset.y/offsetY;
+        alpha =  scrollerView.contentOffset.y/self.scrolOffsetY;
     }else{
         return;
     }
@@ -117,7 +128,7 @@ static CGFloat alpha = 0;
     [self.navigationController.navigationBar setShadowImage:nil];
 }
 
-#pragma mark - 内部方法
+#pragma mark - *********************** 内部方法 **********************
 // 获取tableView 或者 collectionView
 - (UIScrollView *)getScrollerView{
     

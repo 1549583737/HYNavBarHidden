@@ -18,12 +18,15 @@
 @property (nonatomic,assign) BOOL  isTitleAlpha;
 @property (nonatomic,assign) BOOL  isRightAlpha;
 
+/** ScrollView的Y轴偏移量大于scrolOffsetY的距离后,导航条的alpha为1 */
+@property (nonatomic,assign) CGFloat scrolOffsetY;
+
 /** 清除默认导航条的背景设置 */
 - (void)setInViewWillAppear;
 - (void)setInViewWillDisappear;
 
 
-/** 偏移offsetY的距离后,导航条的alpha为1 */
-- (void)scrollControlByOffsetY:(CGFloat)offsetY;
+/** ScrollView滚动时调用方法 */
+- (void)scrollControl;
 
 @end
