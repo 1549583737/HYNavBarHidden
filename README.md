@@ -18,7 +18,7 @@
 # HYNavBarHidden的常用属性方法
 ---
 ####属性
-1.keyScrollView:当一个控制器中有多个ScrollView,要指明是监听哪个ScrollView的滚动
+1.keyScrollView:当控制器中有多个ScrollView时,要指明是监听哪个ScrollView的滚动
 
 2.导航条中item是否跟着渐隐,分别设置左边,中间,右边三个的BOOL值.默认为NO	
 
@@ -27,20 +27,22 @@
 	@property (nonatomic,assign) BOOL  isTitleAlpha;
 	@property (nonatomic,assign) BOOL  isRightAlpha;
 
-3.opaqueOffsetY:偏移大于等于offsetY时,导航条的alpha为1,完全不透明
+3.scrolOffsetY:偏移大于等于scrolOffsetY时,导航条的alpha为1,完全不透明
 
 
 ###方法  (push或者pop控制器时,消除或回复导航条状态)
 
-4.方法setInViewWillAppear : 
+4.- (void)setInViewWillAppear 在控制器的viewWillAppear:方法中调用
 
-5.方法setInViewWillDisappear :
+5.- (void)setInViewWillDisappear 在控制器的viewWillDisappear:方法中调用
+ 
+6.- (void)scrollControl 在scrollView代理方法中调用
 
 #效果演示
 ---
 ![1.gif](http://upload-images.jianshu.io/upload_images/1338042-b49f8c85cef44460.gif?imageMogr2/auto-orient/strip)
 
-###最后在这给大家推荐一个极为好用的图片轮播器.是目前笔者发现封装得最好的图片轮播器之一.代码十分值得学习借鉴,github链接https://github.com/codingZero/XRCarouselView
+###最后在这给大家推荐一个极为好用的图片轮播器.是目前笔者发现封装得最好的图片轮播器之一.代码十分值得学习借鉴,github源码链接https://github.com/codingZero/XRCarouselView
 
 
 
