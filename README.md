@@ -42,7 +42,9 @@
 ---
 ![1.gif](http://upload-images.jianshu.io/upload_images/1338042-b49f8c85cef44460.gif?imageMogr2/auto-orient/strip)
 
-###最后在这给大家推荐一个极为好用的图片轮播器.是目前笔者发现封装得最好的图片轮播器之一.代码十分值得学习借鉴,github源码链接https://github.com/codingZero/XRCarouselView
+###最后在这给大家推荐一个极为好用的图片轮播器.是目前笔者发现封装得最好的图片轮播器之一.github源码链接https://github.com/codingZero/XRCarouselView
+---
+![3.gif](http://upload-images.jianshu.io/upload_images/1338042-3c3b404123db6f3b.gif?imageMogr2/auto-orient/strip)
 
 
 
