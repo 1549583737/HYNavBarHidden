@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B480A2FD1CCA1E4C00D2B972 /* HYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B480A2FC1CCA1E4C00D2B972 /* HYViewController.m */; };
+		B480A3001CCA239A00D2B972 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B480A2FF1CCA239A00D2B972 /* MyViewController.m */; };
 		F801D39C1C93AF6300D14345 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F801D39B1C93AF6300D14345 /* main.m */; };
 		F801D39F1C93AF6300D14345 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F801D39E1C93AF6300D14345 /* AppDelegate.m */; };
 		F801D3A51C93AF6300D14345 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F801D3A31C93AF6300D14345 /* Main.storyboard */; };
@@ -41,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B480A2FB1CCA1E4C00D2B972 /* HYViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYViewController.h; sourceTree = "<group>"; };
+		B480A2FC1CCA1E4C00D2B972 /* HYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYViewController.m; sourceTree = "<group>"; };
+		B480A2FE1CCA239A00D2B972 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		B480A2FF1CCA239A00D2B972 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		F801D3971C93AF6300D14345 /* 自定义导航控制器.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "自定义导航控制器.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F801D39B1C93AF6300D14345 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F801D39D1C93AF6300D14345 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -121,6 +127,8 @@
 				F8485AB21C93C18900A2158F /* TestViewController.m */,
 				F8485ABE1C93D3F400A2158F /* TestCollectionController.h */,
 				F8485ABF1C93D3F400A2158F /* TestCollectionController.m */,
+				B480A2FE1CCA239A00D2B972 /* MyViewController.h */,
+				B480A2FF1CCA239A00D2B972 /* MyViewController.m */,
 				F89B674F1C9674250040FE5C /* PushVc.h */,
 				F89B67501C9674250040FE5C /* PushVc.m */,
 				F801D3A31C93AF6300D14345 /* Main.storyboard */,
@@ -168,6 +176,8 @@
 			children = (
 				F8485ABA1C93D06100A2158F /* UIViewController+NavBarHidden.h */,
 				F8485ABB1C93D06100A2158F /* UIViewController+NavBarHidden.m */,
+				B480A2FB1CCA1E4C00D2B972 /* HYViewController.h */,
+				B480A2FC1CCA1E4C00D2B972 /* HYViewController.m */,
 			);
 			path = HYNavBarHidden;
 			sourceTree = "<group>";
@@ -307,9 +317,11 @@
 			files = (
 				F801D39F1C93AF6300D14345 /* AppDelegate.m in Sources */,
 				F801D39C1C93AF6300D14345 /* main.m in Sources */,
+				B480A3001CCA239A00D2B972 /* MyViewController.m in Sources */,
 				F8485AC01C93D3F400A2158F /* TestCollectionController.m in Sources */,
 				F8485AB31C93C18900A2158F /* TestViewController.m in Sources */,
 				F8485ABD1C93D06100A2158F /* UIViewController+NavBarHidden.m in Sources */,
+				B480A2FD1CCA1E4C00D2B972 /* HYViewController.m in Sources */,
 				F89B67511C9674250040FE5C /* PushVc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

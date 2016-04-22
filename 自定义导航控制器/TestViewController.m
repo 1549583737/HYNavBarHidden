@@ -38,6 +38,8 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
       [self scrollControl];
+    
+//     [self addObserver:<#(nonnull NSObject *)#> forKeyPath:<#(nonnull NSString *)#> options:(NSKeyValueObservingOptions) context:<#(nullable void *)#>]
 }
 
 - (void)viewWillAppear:(BOOL)animated{
