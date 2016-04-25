@@ -19,7 +19,7 @@
 ---
 1.导入分类或者继承<通过分类和继承两种方案实现,大家各凭喜好使用>
 2.使用方法,控制器实现接口方法
-/- (void)setKeyScrollView:(UIScrollView * )keyScrollView scrolOffsetY:(CGFloat)scrolOffsetY options:(HYHidenControlOptions)options;
+   - (void)setKeyScrollView:(UIScrollView * )keyScrollView scrolOffsetY:(CGFloat)scrolOffsetY options:(HYHidenControlOptions)options;
 
 #warning 
 由于导航控制器有push和pop操作,当有下级控制器时,则两个控制器共用一个导航条.两控制器之间就会产生冲突.
