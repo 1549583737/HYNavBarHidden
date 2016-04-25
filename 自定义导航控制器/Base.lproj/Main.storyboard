@@ -1090,35 +1090,12 @@
                                 <segment title="Second"/>
                             </segments>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="camera" id="aoY-0A-rOp">
-                            <connections>
-                                <segue destination="HzB-9j-tzi" kind="push" id="3Lg-LG-HOs"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="camera" id="aoY-0A-rOp"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rlc-iM-hqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1771.5" y="-2255.5"/>
-        </scene>
-        <!--Push Vc-->
-        <scene sceneID="eyc-cs-FrJ">
-            <objects>
-                <viewController id="HzB-9j-tzi" customClass="PushVc" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="PoY-dd-dM2"/>
-                        <viewControllerLayoutGuide type="bottom" id="IhV-EL-cCn"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QKs-Kf-A4c">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Gtx-HV-KQh"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fmA-l0-H5e" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2256.5" y="-2255.5"/>
         </scene>
         <!--Test Collection Controller-->
         <scene sceneID="c4I-jA-2iS">
@@ -1133,43 +1110,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jc5-PT-pWr">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="doU-id-i9f">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kBe-5E-5Rq">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="push">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="xWK-CY-RQl" kind="push" id="jQI-cN-d7t"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="jc5-PT-pWr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v2q-ZP-RYi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1803.5" y="-1260.5"/>
-        </scene>
-        <!--pushVc-->
-        <scene sceneID="usm-oO-qXX">
-            <objects>
-                <viewController id="xWK-CY-RQl" customClass="PushVc" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="TH3-Eh-bLz"/>
-                        <viewControllerLayoutGuide type="bottom" id="ZT9-ih-IWC"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="c1p-V0-T5E">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="pushVc" id="9SG-z0-nPY"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ag7-N7-6C0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2278.5" y="-1322.5"/>
         </scene>
         <!--Item-->
         <scene sceneID="g41-TF-XwH">

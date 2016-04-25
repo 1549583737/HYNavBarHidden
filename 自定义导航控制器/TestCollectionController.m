@@ -27,36 +27,12 @@
     //2.设置导航条内容
     [self setUpNavBar];
     
-    //3.Y轴偏移大于600时完全不透明
-    self.scrolOffsetY = 600;
-    
-    //4.导航条上的自定义的子标签是否需要跟着隐藏.
-    self.isTitleAlpha = YES;
-    self.isLeftAlpha = YES;
-    
-    //5.设置collectionView
     [self setUpCollectionView];
     
-    //6.告诉程序是根据哪个scrollView的滚动来控制状态栏的变化
-    self.keyScrollView = self.collectionView;
+    [self setKeyScrollView:self.collectionView scrolOffsetY:600 options:HYHidenControlOptionTitle | HYHidenControlOptionLeft];
     
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    
-    [self scrollControl];
-}
-- (void)viewWillAppear:(BOOL)animated{
-    
-    [super viewWillAppear:animated];
-    [self setInViewWillAppear];
-}
-
-- (void)viewWillDisappear:(BOOL)animated{
-    
-    [super viewWillDisappear:animated];
-    [self setInViewWillDisappear];
-}
 
 
 #pragma mark - UI设置
@@ -71,7 +47,7 @@
     titleLabel.textColor = [UIColor redColor];
     self.navigationItem.titleView = titleLabel;
     
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"2"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"2.jpg"] forBarMetrics:UIBarMetricsDefault];
 }
 
 
@@ -83,7 +59,7 @@
     UICollectionView * collectionView = [[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:layout];;
     
     //设置item属性
-    layout.itemSize = CGSizeMake(150, 200);
+    layout.itemSize = CGSizeMake(self.view.bounds.size.width * 0.4, 200);
     layout.minimumInteritemSpacing = 20;
     layout.sectionInset = UIEdgeInsetsMake(270, 20, 20, 20);
     

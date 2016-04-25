@@ -20,7 +20,6 @@
 		F8485ABD1C93D06100A2158F /* UIViewController+NavBarHidden.m in Sources */ = {isa = PBXBuildFile; fileRef = F8485ABB1C93D06100A2158F /* UIViewController+NavBarHidden.m */; };
 		F8485AC01C93D3F400A2158F /* TestCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8485ABF1C93D3F400A2158F /* TestCollectionController.m */; };
 		F8506FAB1C9482BD00B90DB1 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F8506FAA1C9482BD00B90DB1 /* 1.jpg */; };
-		F89B67511C9674250040FE5C /* PushVc.m in Sources */ = {isa = PBXBuildFile; fileRef = F89B67501C9674250040FE5C /* PushVc.m */; };
 		F8B593CE1CB827D000DC7953 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F8B593CD1CB827D000DC7953 /* 2.jpg */; };
 		F8FC260F1C964006006878B3 /* Objective-C.gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F8FC260E1C964006006878B3 /* Objective-C.gitignore */; };
 /* End PBXBuildFile section */
@@ -68,8 +67,6 @@
 		F8485ABE1C93D3F400A2158F /* TestCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionController.h; sourceTree = "<group>"; };
 		F8485ABF1C93D3F400A2158F /* TestCollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionController.m; sourceTree = "<group>"; };
 		F8506FAA1C9482BD00B90DB1 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
-		F89B674F1C9674250040FE5C /* PushVc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushVc.h; sourceTree = "<group>"; };
-		F89B67501C9674250040FE5C /* PushVc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushVc.m; sourceTree = "<group>"; };
 		F8B593CD1CB827D000DC7953 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.jpg; path = Assets.xcassets/2.imageset/2.jpg; sourceTree = "<group>"; };
 		F8FC260E1C964006006878B3 /* Objective-C.gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Objective-C.gitignore"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,8 +126,6 @@
 				F8485ABF1C93D3F400A2158F /* TestCollectionController.m */,
 				B480A2FE1CCA239A00D2B972 /* MyViewController.h */,
 				B480A2FF1CCA239A00D2B972 /* MyViewController.m */,
-				F89B674F1C9674250040FE5C /* PushVc.h */,
-				F89B67501C9674250040FE5C /* PushVc.m */,
 				F801D3A31C93AF6300D14345 /* Main.storyboard */,
 				F801D3A61C93AF6400D14345 /* Assets.xcassets */,
 				F8B593CD1CB827D000DC7953 /* 2.jpg */,
@@ -323,7 +318,6 @@
 				F8485AB31C93C18900A2158F /* TestViewController.m in Sources */,
 				F8485ABD1C93D06100A2158F /* UIViewController+NavBarHidden.m in Sources */,
 				B480A2FD1CCA1E4C00D2B972 /* HYViewController.m in Sources */,
-				F89B67511C9674250040FE5C /* PushVc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

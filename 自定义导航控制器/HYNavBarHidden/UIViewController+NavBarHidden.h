@@ -8,25 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+
+typedef NS_OPTIONS(NSUInteger, HYHidenControlOptions) {
+    
+    HYHidenControlOptionLeft = 0x01,
+    HYHidenControlOptionTitle = 0x01 << 1,
+    HYHidenControlOptionRight = 0x01 << 2,
+    
+};
+
 @interface UIViewController (NavBarHidden)
 
-/** 需要监听的view */
-@property (nonatomic,weak) UIScrollView * keyScrollView;
-
-/** 设置导航条上的标签是否需要跟随滚动变化透明度,默认不会跟随滚动变化透明度 */
-@property (nonatomic,assign) BOOL  isLeftAlpha;
-@property (nonatomic,assign) BOOL  isTitleAlpha;
-@property (nonatomic,assign) BOOL  isRightAlpha;
-
-/** ScrollView的Y轴偏移量大于scrolOffsetY的距离后,导航条的alpha为1 */
-@property (nonatomic,assign) CGFloat scrolOffsetY;
+- (void)setKeyScrollView:(UIScrollView * )keyScrollView scrolOffsetY:(CGFloat)scrolOffsetY options:(HYHidenControlOptions)options;
 
 /** 清除默认导航条的背景设置 */
 - (void)setInViewWillAppear;
 - (void)setInViewWillDisappear;
-
-
-/** ScrollView滚动时调用方法 */
-- (void)scrollControl;
-
 @end
