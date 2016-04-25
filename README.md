@@ -3,40 +3,29 @@
 
 超简单好用的监听滚动,导航条渐隐的UI效果实现(时下最流行的UI效果之一)
 
+由于只有一个类文件,大家使用的时候直接拖进去去使用就好.笔者就不做cocoapods导入了.
+
 使用过程中发现bug请先下载最新版，若bug依旧存在，请及时反馈，谢谢
 
 详细使用方法,原理说明,欢迎大家关注笔者简书链接http://www.jianshu.com/p/ac237ebcd4fb.
 
-#HYNavBarHidden的优点
+#HYNavBarHidden的优点<通过分类和继承两种方案实现,大家各凭喜好使用>
 ---
 1.文件少，代码简洁,不依赖其他第三方库
 
 2.接口简单,使用方便
 
-3.对源码无侵入性,导入分类即可使用,无需继承
-
-# HYNavBarHidden的常用属性方法
+# HYNavBarHidden的使用
 ---
-####属性
-1.keyScrollView:当控制器中有多个ScrollView时,要指明是监听哪个ScrollView的滚动
+1.导入分类或者继承<通过分类和继承两种方案实现,大家各凭喜好使用>
+2.使用方法,控制器实现接口方法
+- (void)setKeyScrollView:(UIScrollView * )keyScrollView scrolOffsetY:(CGFloat)scrolOffsetY options:(HYHidenControlOptions)options;
 
-2.导航条中item是否跟着渐隐,分别设置左边,中间,右边三个的BOOL值.默认为NO	
-
-	/** 设置导航条上的标签是否需要跟随滚动变化透明度,默认不会跟随滚动变化透明度 */
-	@property (nonatomic,assign) BOOL  isLeftAlpha;
-	@property (nonatomic,assign) BOOL  isTitleAlpha;
-	@property (nonatomic,assign) BOOL  isRightAlpha;
-
-3.scrolOffsetY:偏移大于等于scrolOffsetY时,导航条的alpha为1,完全不透明
-
-
-###方法  (push或者pop控制器时,消除或回复导航条状态)
-
-4.- (void)setInViewWillAppear 在控制器的viewWillAppear:方法中调用
-
-5.- (void)setInViewWillDisappear 在控制器的viewWillDisappear:方法中调用
- 
-6.- (void)scrollControl 在scrollView代理方法中调用
+#warning 
+由于导航控制器有push和pop操作,当有下级控制器时,则两个控制器共用一个导航条.两控制器之间就会产生冲突.
+解决方案:
+1.当前控制器没有下级的控制器,既没有push操作了.
+2.一定要push的话,那push出来的控制器最好使用自定义的导航条,自定义的导航条盖在最上面.
 
 #效果演示
 ---
