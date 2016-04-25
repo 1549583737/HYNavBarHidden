@@ -15,9 +15,17 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor greenColor];
+    [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:0.999];
+
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:nil];
     
 }
 
-
+- (void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    NSLog(@"%@",self.navigationController.navigationBar.subviews.firstObject);
+}
 
 @end

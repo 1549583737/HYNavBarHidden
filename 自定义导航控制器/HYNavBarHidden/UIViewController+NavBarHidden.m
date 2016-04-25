@@ -8,6 +8,10 @@
 
 #import "UIViewController+NavBarHidden.h"
 #import <objc/runtime.h>
+#import "sys/sysctl.h"
+
+///** ScrollView的Y轴偏移量大于scrolOffsetY的距离后,导航条的alpha为1 */
+static const CGFloat hy_scrolOffsetY = 600.0f;
 
 @interface UIViewController ()
 @property (nonatomic,strong) UIImage  * navBarBackgroundImage;
@@ -45,6 +49,11 @@ static const char * scrolOffsetYKey = "offsetY";
 }
 
 - (void)setScrolOffsetY:(CGFloat)scrolOffsetY{
+    
+    if ([self doDeviceVersion] <= 5) {
+        return;
+    }
+    
     objc_setAssociatedObject(self, scrolOffsetYKey, @(scrolOffsetY), OBJC_ASSOCIATION_ASSIGN);
 }
 
@@ -83,13 +92,18 @@ static const char * isTitleAlphaKey = "isTitleAlpha";
 #pragma mark - **************** 核心代码-即对外接口功能实现代码 ******************
 
 static CGFloat alpha = 0;
+static CGFloat offsetY = 0;
 //透明度
 - (void)scrollControl{
+    
+    
+    CGFloat offsetY = ([self doDeviceVersion] <= 5) ? hy_scrolOffsetY:self.scrolOffsetY;
+    
     
     if ([self getScrollerView]){
         
         UIScrollView * scrollerView = [self getScrollerView];
-        alpha =  scrollerView.contentOffset.y/self.scrolOffsetY;
+        alpha =  scrollerView.contentOffset.y/offsetY;
     }else{
         return;
     }
@@ -147,4 +161,28 @@ static CGFloat alpha = 0;
     return nil;
 }
 
+- (NSString*) doDevicePlatform
+{
+    size_t size;
+    int nR = sysctlbyname("hw.machine", NULL, &size, NULL, 0);
+    char *machine = (char *)malloc(size);
+    nR = sysctlbyname("hw.machine", machine, &size, NULL, 0);
+    NSString *platform = [NSString stringWithCString:machine encoding:NSUTF8StringEncoding];
+    free(machine);
+    
+    return 	platform;
+}
+
+- (NSInteger)doDeviceVersion{
+
+    
+    //判断手机型号
+    NSArray * arr = [[self doDevicePlatform] componentsSeparatedByString:@","];
+    NSInteger deviceVersion = 0;
+    if ([arr.firstObject containsString:@"iPhone"]) {
+        
+        deviceVersion  = [[arr.firstObject substringWithRange:(NSRange){6,1}] integerValue];
+    }
+    return deviceVersion;
+}
 @end

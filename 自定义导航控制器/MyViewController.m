@@ -25,6 +25,7 @@
     self.navigationItem.titleView = [UIButton buttonWithType:UIButtonTypeContactAdd];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[UIButton buttonWithType:UIButtonTypeDetailDisclosure]];
     self.tableView.rowHeight = 100;
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 
