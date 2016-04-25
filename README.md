@@ -26,9 +26,14 @@
    -(void)setKeyScrollView:(UIScrollView * )keyScrollView scrolOffsetY:(CGFloat)scrolOffsetY options:(HYHidenControlOptions)options;
 
 #warning 
+
 由于导航控制器有push和pop操作,当有下级控制器时,则两个控制器共用一个导航条.两控制器之间就会产生冲突.
+
 解决方案:
+
 1.当前控制器没有下级的控制器,既没有push操作了.
+
+
 2.一定要push的话,那push出来的控制器最好使用自定义的导航条,自定义的导航条盖在最上面.
 
 #效果演示
