@@ -10,18 +10,12 @@
 #import <objc/runtime.h>
 #import "sys/sysctl.h"
 
-///** ScrollView的Y轴偏移量大于scrolOffsetY的距离后,导航条的alpha为1 */
-static const CGFloat hy_scrolOffsetY = 600.0f;
-
 @interface UIViewController ()
-@property (nonatomic,strong) UIImage  * navBarBackgroundImage;
+@property (nonatomic,strong) UIImage  * navBarBackgroundImage; //导航条的背景图片
 /** 需要监听的view */
 @property (nonatomic,weak) UIScrollView * keyScrollView;
-
 /** 设置导航条上的标签是否需要跟随滚动变化透明度,默认不会跟随滚动变化透明度 */
 @property (nonatomic,assign) HYHidenControlOptions  hy_hidenControlOptions;
-
-
 /** ScrollView的Y轴偏移量大于scrolOffsetY的距离后,导航条的alpha为1 */
 @property (nonatomic,assign) CGFloat scrolOffsetY;
 @end
@@ -62,7 +56,6 @@ static const char * scrolOffsetYKey = "offsetY";
     if ([self doDeviceVersion] <= 5) {
         return;
     }
-    
     objc_setAssociatedObject(self, scrolOffsetYKey, @(scrolOffsetY), OBJC_ASSOCIATION_ASSIGN);
 }
 
@@ -80,29 +73,29 @@ static const char * hy_hidenControlOptionsKey = "hy_hidenControlOptions";
 
 #pragma mark - **************** 核心代码-对外接口功能实现代码 ******************
 
-//- (void)setInViewWillAppear{
-//
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//    
-//        self.navBarBackgroundImage = [self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault];
-//    });
-//    //设置背景图片
-//    [self.navigationController.navigationBar setBackgroundImage:self.navBarBackgroundImage forBarMetrics:UIBarMetricsDefault];
-//    //清除边框，设置一张空的图片
-//    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
-//    
-//    self.keyScrollView.contentOffset = CGPointMake(0, self.keyScrollView.contentOffset.y - 1);
-//    self.keyScrollView.contentOffset = CGPointMake(0, self.keyScrollView.contentOffset.y + 1);
-//    
-//}
-//
-//- (void)setInViewWillDisappear{
-//
-//    [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:1];
-//    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-//    [self.navigationController.navigationBar setShadowImage:nil];
-//}
+- (void)setInViewWillAppear{
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+    
+        self.navBarBackgroundImage = [self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault];
+    });
+    //设置背景图片
+    [self.navigationController.navigationBar setBackgroundImage:self.navBarBackgroundImage forBarMetrics:UIBarMetricsDefault];
+    //清除边框，设置一张空的图片
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
+    
+    self.keyScrollView.contentOffset = CGPointMake(0, self.keyScrollView.contentOffset.y - 1);
+    self.keyScrollView.contentOffset = CGPointMake(0, self.keyScrollView.contentOffset.y + 1);
+    
+}
+
+- (void)setInViewWillDisappear{
+
+    [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:1];
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:nil];
+}
 
 - (void)setKeyScrollView:(UIScrollView *)keyScrollView scrolOffsetY:(CGFloat)scrolOffsetY options:(HYHidenControlOptions)options{
     
@@ -115,11 +108,9 @@ static const char * hy_hidenControlOptionsKey = "hy_hidenControlOptions";
 #pragma mark - *********************** 内部方法 **********************
 
 static CGFloat alpha = 0;
-static CGFloat offsetY = 0;
-
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
     
-    CGFloat offsetY = ([self doDeviceVersion] <= 5) ? hy_scrolOffsetY:self.scrolOffsetY;
+    CGFloat offsetY = ([self doDeviceVersion] <= 5) ? [UIScreen mainScreen].bounds.size.height:self.scrolOffsetY;
     CGPoint point = self.keyScrollView.contentOffset;
     alpha =  point.y/offsetY;
     alpha = (alpha <= 0)?0:alpha;
@@ -128,11 +119,10 @@ static CGFloat offsetY = 0;
     self.navigationItem.leftBarButtonItem.customView.alpha = self.hy_hidenControlOptions & 1?alpha:1;
     self.navigationItem.titleView.alpha = self.hy_hidenControlOptions >> 1 & 1 ?alpha:1;
     self.navigationItem.rightBarButtonItem.customView.alpha = self.hy_hidenControlOptions >> 2 & 1?alpha:1;
-    
-    
     [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:alpha];
 
 }
+
 
 - (NSString*) doDevicePlatform
 {
@@ -148,7 +138,6 @@ static CGFloat offsetY = 0;
 
 - (NSInteger)doDeviceVersion{
 
-    
     //判断手机型号
     NSArray * arr = [[self doDevicePlatform] componentsSeparatedByString:@","];
     NSInteger deviceVersion = 0;

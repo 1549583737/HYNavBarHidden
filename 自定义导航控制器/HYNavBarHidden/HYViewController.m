@@ -49,35 +49,34 @@
 }
 
 
-//- (void)viewWillAppear:(BOOL)animated{
-//    
-//    
-//    [super viewWillAppear:animated];
-//    
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        
-//        _navBarBackgroundImage = [self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault];
-//    });
-//    //设置背景图片
-//    [self.navigationController.navigationBar setBackgroundImage:_navBarBackgroundImage forBarMetrics:UIBarMetricsDefault];
-//    //清除边框，设置一张空的图片
-//    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
-//    
-//    _keyScrollView.contentOffset = CGPointMake(0, _keyScrollView.contentOffset.y - 1);
-//    _keyScrollView.contentOffset = CGPointMake(0, _keyScrollView.contentOffset.y + 1);
-//    
-//}
-//
-//- (void)viewWillDisappear:(BOOL)animated{
-//    
-//    [super viewWillDisappear:animated];
-//    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-//    [self.navigationController.navigationBar setShadowImage:nil];
-//    
-//    
-////    [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:0.999];
-//
-//}
+- (void)viewDidAppear:(BOOL)animated{
+    
+    
+    [super viewDidAppear:animated];
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        _navBarBackgroundImage = [self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault];
+    });
+    //设置背景图片
+    [self.navigationController.navigationBar setBackgroundImage:_navBarBackgroundImage forBarMetrics:UIBarMetricsDefault];
+    //清除边框，设置一张空的图片
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
+    
+    _keyScrollView.contentOffset = CGPointMake(0, _keyScrollView.contentOffset.y - 1);
+    _keyScrollView.contentOffset = CGPointMake(0, _keyScrollView.contentOffset.y + 1);
+    
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    
+    [super viewDidDisappear:animated];
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:nil];
+    
+    [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:0.999];
+
+}
 
 @end
