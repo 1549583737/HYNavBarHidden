@@ -31,8 +31,8 @@
  
     CGPoint point = _keyScrollView.contentOffset;
     _alpha =  point.y/_scrolOffsetY;
-    _alpha = (_alpha <= 0)?0:_alpha;
-    _alpha = (_alpha >= 1)?1:_alpha;
+    _alpha = MAX(0, _alpha);
+    _alpha = MIN(0, _alpha);
     
     //设置导航条上的标签是否跟着透明
     self.navigationItem.leftBarButtonItem.customView.alpha = _hidenControlOptions & 1?_alpha:1;

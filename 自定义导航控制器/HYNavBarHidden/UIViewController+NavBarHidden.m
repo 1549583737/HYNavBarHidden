@@ -113,8 +113,8 @@ static CGFloat alpha = 0;
     CGFloat offsetY = ([self doDeviceVersion] <= 5) ? [UIScreen mainScreen].bounds.size.height:self.scrolOffsetY;
     CGPoint point = self.keyScrollView.contentOffset;
     alpha =  point.y/offsetY;
-    alpha = (alpha <= 0)?0:alpha;
-    alpha = (alpha >= 1)?1:alpha;
+    alpha = MAX(0, alpha);
+    alpha = MIN(0, alpha);
     //设置导航条上的标签是否跟着透明
     self.navigationItem.leftBarButtonItem.customView.alpha = self.hy_hidenControlOptions & 1?alpha:1;
     self.navigationItem.titleView.alpha = self.hy_hidenControlOptions >> 1 & 1 ?alpha:1;
