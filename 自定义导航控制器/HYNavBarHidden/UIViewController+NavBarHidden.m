@@ -75,11 +75,6 @@ static const char * hy_hidenControlOptionsKey = "hy_hidenControlOptions";
 
 - (void)setInViewWillAppear{
 
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-    
-        self.navBarBackgroundImage = [self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault];
-    });
     //设置背景图片
     [self.navigationController.navigationBar setBackgroundImage:self.navBarBackgroundImage forBarMetrics:UIBarMetricsDefault];
     //清除边框，设置一张空的图片
@@ -113,8 +108,8 @@ static CGFloat alpha = 0;
     CGFloat offsetY = ([self doDeviceVersion] <= 5) ? [UIScreen mainScreen].bounds.size.height:self.scrolOffsetY;
     CGPoint point = self.keyScrollView.contentOffset;
     alpha =  point.y/offsetY;
-    alpha = MAX(0, alpha);
-    alpha = MIN(0, alpha);
+    alpha = (alpha <= 0)?0:alpha;
+    alpha = (alpha >= 1)?1:alpha;
     //设置导航条上的标签是否跟着透明
     self.navigationItem.leftBarButtonItem.customView.alpha = self.hy_hidenControlOptions & 1?alpha:1;
     self.navigationItem.titleView.alpha = self.hy_hidenControlOptions >> 1 & 1 ?alpha:1;

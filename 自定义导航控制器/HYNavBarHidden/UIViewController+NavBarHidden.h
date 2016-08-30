@@ -20,7 +20,7 @@ typedef NS_OPTIONS(NSUInteger, HYHidenControlOptions) {
 @interface UIViewController (NavBarHidden)
 
 - (void)setKeyScrollView:(UIScrollView * )keyScrollView scrolOffsetY:(CGFloat)scrolOffsetY options:(HYHidenControlOptions)options;
-
+- (void)setNavBarBackgroundImage:(UIImage *)navBarBackgroundImage;
 /** 清除默认导航条的背景设置 */
 - (void)setInViewWillAppear;
 - (void)setInViewWillDisappear;

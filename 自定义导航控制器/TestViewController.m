@@ -24,22 +24,22 @@
     UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 0, 250)];
     imageView.image = [UIImage imageNamed:@"lol"];
     self.tableView.tableHeaderView = imageView;
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"2.jpg"] forBarMetrics:UIBarMetricsDefault];
+    [self setNavBarBackgroundImage:[UIImage imageNamed:@"2.jpg"]];
 
 }
 
 
 
 
-- (void)viewDidAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated{
     
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     [self setInViewWillAppear];
 }
 
-- (void)viewDidDisappear:(BOOL)animated{
+- (void)viewWillDisappear:(BOOL)animated{
     
-    [super viewDidDisappear:animated];
+    [super viewWillDisappear:animated];
     [self setInViewWillDisappear];
 }
 

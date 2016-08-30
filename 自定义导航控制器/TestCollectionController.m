@@ -34,11 +34,24 @@
 }
 
 
+- (void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    [self setInViewWillAppear];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    
+    [super viewWillDisappear:animated];
+    [self setInViewWillDisappear];
+}
+
 
 #pragma mark - UI设置
 
 - (void)setUpNavBar{
-
+    
+    [self setNavBarBackgroundImage:[UIImage imageNamed:@"2.jpg"]];
     UIButton * addBtn = [UIButton buttonWithType:UIButtonTypeContactAdd];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:addBtn];
     UILabel * titleLabel =[[UILabel alloc]init];
@@ -46,8 +59,7 @@
     [titleLabel sizeToFit];
     titleLabel.textColor = [UIColor redColor];
     self.navigationItem.titleView = titleLabel;
-    
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"2.jpg"] forBarMetrics:UIBarMetricsDefault];
+
 }
 
 
