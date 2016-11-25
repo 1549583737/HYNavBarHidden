@@ -26,6 +26,7 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[UIButton buttonWithType:UIButtonTypeDetailDisclosure]];
     self.tableView.rowHeight = 100;
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.hidesBottomBarWhenPushed = YES;
 }
 
 

@@ -25,7 +25,7 @@
     imageView.image = [UIImage imageNamed:@"lol"];
     self.tableView.tableHeaderView = imageView;
     [self setNavBarBackgroundImage:[UIImage imageNamed:@"2.jpg"]];
-
+    self.hidesBottomBarWhenPushed = YES;
 }
 
 
