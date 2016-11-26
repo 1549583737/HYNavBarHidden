@@ -30,7 +30,7 @@
     [self setUpCollectionView];
     
     [self setKeyScrollView:self.collectionView scrolOffsetY:600 options:HYHidenControlOptionTitle | HYHidenControlOptionLeft];
-    self.hidesBottomBarWhenPushed = YES;
+    
 }
 
 
