@@ -85,14 +85,6 @@ static const char * hy_hidenControlOptionsKey = "hy_hidenControlOptions";
     
 }
 
-- (void)dealloc
-{
-  if(self.keyScrollView) {
-    [self.keyScrollView removeObserver:self forKeyPath:@"contentOffset"];
-  }
-}
-
-
 - (void)setInViewWillDisappear{
 
     [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:1];
