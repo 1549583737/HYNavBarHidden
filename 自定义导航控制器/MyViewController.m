@@ -21,7 +21,8 @@
     
 
     [self setKeyScrollView:self.tableView scrolOffsetY:600 options:HYHidenControlOptionLeft | HYHidenControlOptionTitle];
-    
+    //设置背景图片
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"2.jpg"] forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.titleView = [UIButton buttonWithType:UIButtonTypeContactAdd];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[UIButton buttonWithType:UIButtonTypeDetailDisclosure]];
     self.tableView.rowHeight = 100;

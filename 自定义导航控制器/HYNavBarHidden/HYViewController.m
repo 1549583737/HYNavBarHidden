@@ -50,12 +50,14 @@
         
         _navBarBackgroundImage = [self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault];
     });
+    
+    
     //设置背景图片
     [self.navigationController.navigationBar setBackgroundImage:_navBarBackgroundImage forBarMetrics:UIBarMetricsDefault];
     //清除边框，设置一张空的图片
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
-
     [self setNavSubViewsAlpha];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
