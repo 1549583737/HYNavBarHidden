@@ -18,11 +18,16 @@
 ---
 1.导入分类或者继承<通过分类和继承两种方案实现,大家各凭喜好使用>
 
-
 2.使用方法,控制器实现接口方法
 
+      -(void)setKeyScrollView:(UIScrollView * )keyScrollView scrolOffsetY:(CGFloat)scrolOffsetY options:(HYHidenControlOptions)options;
+     
+3.分类方案 
 
-   -(void)setKeyScrollView:(UIScrollView * )keyScrollView scrolOffsetY:(CGFloat)scrolOffsetY options:(HYHidenControlOptions)options;
+      //分类方案 需要在相应的控制器里调用对应的方法 处理导航控制器push和pop操作
+      - (void)hy_viewWillAppear:(BOOL)animated;
+      - (void)hy_viewWillDisappear:(BOOL)animated;
+      - (void)hy_viewDidDisappear:(BOOL)animated;
 
 #warning 
 
