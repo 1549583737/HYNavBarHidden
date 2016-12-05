@@ -29,18 +29,22 @@
 }
 
 
-
-
-- (void)viewWillAppear:(BOOL)animated{
+- (void)viewDidDisappear:(BOOL)animated {
     
-    [super viewWillAppear:animated];
-    [self setInViewWillAppear];
+    [super viewDidDisappear:animated];
+    [self hy_viewDidDisappear:animated];
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated {
+
+    [super viewWillAppear:animated];
+    [self hy_viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
     
     [super viewWillDisappear:animated];
-    [self setInViewWillDisappear];
+    [self hy_viewWillDisappear:animated];
 }
 
 @end

@@ -27,20 +27,13 @@
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
-    
- 
+
     CGPoint point = _keyScrollView.contentOffset;
     _alpha =  point.y/_scrolOffsetY;
     _alpha = (_alpha <= 0)?0:_alpha;
     _alpha = (_alpha >= 1)?1:_alpha;
     
-    //设置导航条上的标签是否跟着透明
-    self.navigationItem.leftBarButtonItem.customView.alpha = _hidenControlOptions & 1?_alpha:1;
-
-    self.navigationItem.titleView.alpha = _hidenControlOptions >> 1 & 1 ?_alpha:1;
-    self.navigationItem.rightBarButtonItem.customView.alpha = _hidenControlOptions >> 2 & 1?_alpha:1;
-    
-    [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:_alpha];
+    [self setNavSubViewsAlpha];
 }
 
 - (void)dealloc{
@@ -49,11 +42,9 @@
 }
 
 
-- (void)viewDidAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated{
     
-    
-    [super viewDidAppear:animated];
-    
+    [super viewWillAppear:(BOOL)animated];
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         
@@ -63,20 +54,38 @@
     [self.navigationController.navigationBar setBackgroundImage:_navBarBackgroundImage forBarMetrics:UIBarMetricsDefault];
     //清除边框，设置一张空的图片
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
+
+    [self setNavSubViewsAlpha];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+
+    [super viewDidAppear:animated];
+    [self setNavSubViewsAlpha];
+
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
     
-    _keyScrollView.contentOffset = CGPointMake(0, _keyScrollView.contentOffset.y - 1);
-    _keyScrollView.contentOffset = CGPointMake(0, _keyScrollView.contentOffset.y + 1);
-    
+    [super viewWillDisappear:animated];
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:nil];
+
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
     
     [super viewDidDisappear:animated];
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:nil];
+    [[[self.navigationController.navigationBar subviews] objectAtIndex:0] setAlpha:1];
     
-    [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:0.999];
+}
 
+- (void)setNavSubViewsAlpha {
+    
+    self.navigationItem.leftBarButtonItem.customView.alpha = _hidenControlOptions & 1?_alpha:1;
+    self.navigationItem.titleView.alpha = _hidenControlOptions >> 1 & 1 ?_alpha:1;
+    self.navigationItem.rightBarButtonItem.customView.alpha = _hidenControlOptions >> 2 & 1?_alpha:1;
+    [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:_alpha];
 }
 
 @end

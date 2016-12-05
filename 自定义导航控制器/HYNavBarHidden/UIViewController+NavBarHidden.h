@@ -21,7 +21,8 @@ typedef NS_OPTIONS(NSUInteger, HYHidenControlOptions) {
 
 - (void)setKeyScrollView:(UIScrollView * )keyScrollView scrolOffsetY:(CGFloat)scrolOffsetY options:(HYHidenControlOptions)options;
 - (void)setNavBarBackgroundImage:(UIImage *)navBarBackgroundImage;
-/** 清除默认导航条的背景设置 */
-- (void)setInViewWillAppear;
-- (void)setInViewWillDisappear;
+
+- (void)hy_viewWillAppear:(BOOL)animated;
+- (void)hy_viewWillDisappear:(BOOL)animated;
+- (void)hy_viewDidDisappear:(BOOL)animated;
 @end

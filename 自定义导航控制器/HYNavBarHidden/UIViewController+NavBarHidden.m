@@ -67,29 +67,6 @@ static const char * hy_hidenControlOptionsKey = "hy_hidenControlOptions";
     objc_setAssociatedObject(self, hy_hidenControlOptionsKey, @(hy_hidenControlOptions), OBJC_ASSOCIATION_ASSIGN);
 }
 
-#pragma mark - ************* 通过运行时动态交换方法 ******************
-
-- (void)setInViewWillAppear{
-    
-    //设置背景图片
-    [self.navigationController.navigationBar setBackgroundImage:self.navBarBackgroundImage forBarMetrics:UIBarMetricsDefault];
-    //清除边框，设置一张空的图片
-    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc]init]];
-    
-    self.keyScrollView.contentOffset = CGPointMake(0, self.keyScrollView.contentOffset.y - 1);
-    self.keyScrollView.contentOffset = CGPointMake(0, self.keyScrollView.contentOffset.y + 1);
-    
-}
-
-- (void)setInViewWillDisappear{
-    
-    [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:1];
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:nil];
-}
-
-
-
 #pragma mark - **************** 核心代码-对外接口功能实现代码 ******************
 
 - (void)setKeyScrollView:(UIScrollView *)keyScrollView scrolOffsetY:(CGFloat)scrolOffsetY options:(HYHidenControlOptions)options{
@@ -99,6 +76,29 @@ static const char * hy_hidenControlOptionsKey = "hy_hidenControlOptions";
     self.scrolOffsetY = scrolOffsetY;
     [self.keyScrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
 }
+
+- (void)hy_viewWillAppear:(BOOL)animated {
+    
+    //设置背景图片
+    [self.navigationController.navigationBar setBackgroundImage:self.navBarBackgroundImage forBarMetrics:UIBarMetricsDefault];
+    //清除边框，设置一张空的图片
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+    [self setNavSubViewsAlpha];
+    
+}
+
+- (void)hy_viewWillDisappear:(BOOL)animated {
+    
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:nil];
+
+}
+
+- (void)hy_viewDidDisappear:(BOOL)animated {
+    
+    [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:1];
+}
+
 
 #pragma mark - *********************** 内部方法 **********************
 
@@ -110,12 +110,17 @@ static CGFloat alpha = 0;
     alpha =  point.y/offsetY;
     alpha = (alpha <= 0)?0:alpha;
     alpha = (alpha >= 1)?1:alpha;
-    //设置导航条上的标签是否跟着透明
+    [self setNavSubViewsAlpha];
+
+}
+
+
+- (void)setNavSubViewsAlpha {
+    
     self.navigationItem.leftBarButtonItem.customView.alpha = self.hy_hidenControlOptions & 1?alpha:1;
     self.navigationItem.titleView.alpha = self.hy_hidenControlOptions >> 1 & 1 ?alpha:1;
     self.navigationItem.rightBarButtonItem.customView.alpha = self.hy_hidenControlOptions >> 2 & 1?alpha:1;
     [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:alpha];
-
 }
 
 @end
