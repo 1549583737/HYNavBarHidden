@@ -8,7 +8,7 @@
 
 #import "UIViewController+NavBarHidden.h"
 #import <objc/runtime.h>
-#import "sys/sysctl.h"
+
 
 @interface UIViewController ()
 @property (nonatomic,strong) UIImage  * navBarBackgroundImage; //导航条的背景图片
@@ -53,10 +53,7 @@ static const char * scrolOffsetYKey = "offsetY";
 
 - (void)setScrolOffsetY:(CGFloat)scrolOffsetY{
     
-    if ([self doDeviceVersion] <= 5) {
-        return;
-    }
-    objc_setAssociatedObject(self, scrolOffsetYKey, @(scrolOffsetY), OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, scrolOffsetYKey, @(scrolOffsetY), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 //定义关联的Key
@@ -70,11 +67,10 @@ static const char * hy_hidenControlOptionsKey = "hy_hidenControlOptions";
     objc_setAssociatedObject(self, hy_hidenControlOptionsKey, @(hy_hidenControlOptions), OBJC_ASSOCIATION_ASSIGN);
 }
 
-
-#pragma mark - **************** 核心代码-对外接口功能实现代码 ******************
+#pragma mark - ************* 通过运行时动态交换方法 ******************
 
 - (void)setInViewWillAppear{
-
+    
     //设置背景图片
     [self.navigationController.navigationBar setBackgroundImage:self.navBarBackgroundImage forBarMetrics:UIBarMetricsDefault];
     //清除边框，设置一张空的图片
@@ -86,11 +82,15 @@ static const char * hy_hidenControlOptionsKey = "hy_hidenControlOptions";
 }
 
 - (void)setInViewWillDisappear{
-
+    
     [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:1];
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
 }
+
+
+
+#pragma mark - **************** 核心代码-对外接口功能实现代码 ******************
 
 - (void)setKeyScrollView:(UIScrollView *)keyScrollView scrolOffsetY:(CGFloat)scrolOffsetY options:(HYHidenControlOptions)options{
     
@@ -105,7 +105,7 @@ static const char * hy_hidenControlOptionsKey = "hy_hidenControlOptions";
 static CGFloat alpha = 0;
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
     
-    CGFloat offsetY = ([self doDeviceVersion] <= 5) ? [UIScreen mainScreen].bounds.size.height:self.scrolOffsetY;
+    CGFloat offsetY = self.scrolOffsetY;
     CGPoint point = self.keyScrollView.contentOffset;
     alpha =  point.y/offsetY;
     alpha = (alpha <= 0)?0:alpha;
@@ -118,28 +118,4 @@ static CGFloat alpha = 0;
 
 }
 
-
-- (NSString*) doDevicePlatform
-{
-    size_t size;
-    int nR = sysctlbyname("hw.machine", NULL, &size, NULL, 0);
-    char *machine = (char *)malloc(size);
-    nR = sysctlbyname("hw.machine", machine, &size, NULL, 0);
-    NSString *platform = [NSString stringWithCString:machine encoding:NSUTF8StringEncoding];
-    free(machine);
-    
-    return 	platform;
-}
-
-- (NSInteger)doDeviceVersion{
-
-    //判断手机型号
-    NSArray * arr = [[self doDevicePlatform] componentsSeparatedByString:@","];
-    NSInteger deviceVersion = 0;
-    if ([arr.firstObject containsString:@"iPhone"]) {
-        
-        deviceVersion  = [[arr.firstObject substringWithRange:(NSRange){6,1}] integerValue];
-    }
-    return deviceVersion;
-}
 @end
