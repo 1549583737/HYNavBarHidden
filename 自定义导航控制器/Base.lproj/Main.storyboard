@@ -12,7 +12,7 @@
         <!--Item-->
         <scene sceneID="9uf-rx-7LU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WeO-vX-57O" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WeO-vX-57O" customClass="NavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="7qK-Me-K9M"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HC1-Z3-TRb">
@@ -1205,7 +1205,7 @@
         <!--Item-->
         <scene sceneID="g41-TF-XwH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Vy-Cs-QGr" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Vy-Cs-QGr" customClass="NavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="jCm-8o-xjz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ybX-f5-a1m">
@@ -1243,7 +1243,7 @@
         <!--Item-->
         <scene sceneID="XmI-Rf-OcI">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CQw-LJ-2eX" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CQw-LJ-2eX" customClass="NavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="pvJ-iN-xvG"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7hW-PG-KVv">

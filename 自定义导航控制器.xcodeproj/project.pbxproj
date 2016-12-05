@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B480A2FD1CCA1E4C00D2B972 /* HYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B480A2FC1CCA1E4C00D2B972 /* HYViewController.m */; };
 		B480A3001CCA239A00D2B972 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B480A2FF1CCA239A00D2B972 /* MyViewController.m */; };
+		B4D160341DF550AD0017C639 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D160331DF550AD0017C639 /* NavigationController.m */; };
 		F801D39C1C93AF6300D14345 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F801D39B1C93AF6300D14345 /* main.m */; };
 		F801D39F1C93AF6300D14345 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F801D39E1C93AF6300D14345 /* AppDelegate.m */; };
 		F801D3A51C93AF6300D14345 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F801D3A31C93AF6300D14345 /* Main.storyboard */; };
@@ -46,6 +47,8 @@
 		B480A2FC1CCA1E4C00D2B972 /* HYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYViewController.m; sourceTree = "<group>"; };
 		B480A2FE1CCA239A00D2B972 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		B480A2FF1CCA239A00D2B972 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		B4D160321DF550AD0017C639 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
+		B4D160331DF550AD0017C639 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
 		F801D3971C93AF6300D14345 /* 自定义导航控制器.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "自定义导航控制器.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F801D39B1C93AF6300D14345 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F801D39D1C93AF6300D14345 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -126,6 +129,8 @@
 				F8485ABF1C93D3F400A2158F /* TestCollectionController.m */,
 				B480A2FE1CCA239A00D2B972 /* MyViewController.h */,
 				B480A2FF1CCA239A00D2B972 /* MyViewController.m */,
+				B4D160321DF550AD0017C639 /* NavigationController.h */,
+				B4D160331DF550AD0017C639 /* NavigationController.m */,
 				F801D3A31C93AF6300D14345 /* Main.storyboard */,
 				F801D3A61C93AF6400D14345 /* Assets.xcassets */,
 				F8B593CD1CB827D000DC7953 /* 2.jpg */,
@@ -316,6 +321,7 @@
 				B480A3001CCA239A00D2B972 /* MyViewController.m in Sources */,
 				F8485AC01C93D3F400A2158F /* TestCollectionController.m in Sources */,
 				F8485AB31C93C18900A2158F /* TestViewController.m in Sources */,
+				B4D160341DF550AD0017C639 /* NavigationController.m in Sources */,
 				F8485ABD1C93D06100A2158F /* UIViewController+NavBarHidden.m in Sources */,
 				B480A2FD1CCA1E4C00D2B972 /* HYViewController.m in Sources */,
 			);

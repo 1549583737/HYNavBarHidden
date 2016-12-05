@@ -9,22 +9,19 @@
 #import "UIViewController+NavBarHidden.h"
 #import <objc/runtime.h>
 
-
 @interface UIViewController ()
 @property (nonatomic,strong) UIImage  * navBarBackgroundImage; //导航条的背景图片
-/** 需要监听的view */
-@property (nonatomic,weak) UIScrollView * keyScrollView;
-/** 设置导航条上的标签是否需要跟随滚动变化透明度,默认不会跟随滚动变化透明度 */
-@property (nonatomic,assign) HYHidenControlOptions  hy_hidenControlOptions;
-/** ScrollView的Y轴偏移量大于scrolOffsetY的距离后,导航条的alpha为1 */
-@property (nonatomic,assign) CGFloat scrolOffsetY;
+@property (nonatomic,weak) UIScrollView * keyScrollView;// 需要监听的view
+@property (nonatomic,assign) HYHidenControlOptions  hy_hidenControlOptions;// 设置导航条上的标签是否需要跟随滚动变化透明度,默认不会跟随滚动变化透明度
+@property (nonatomic,assign) CGFloat scrolOffsetY;// ScrollView的Y轴偏移量大于scrolOffsetY的距离后,导航条的alpha为1
+@property (nonatomic,assign) CGFloat alpha;
 @end
 
 @implementation UIViewController (NavBarHidden)
 
 #pragma mark - ************* 通过运行时动态添加存储属性 ******************
 //定义关联的Key
-static const char * key = "keyScrollView";
+static const char *key = "keyScrollView";
 - (UIScrollView *)keyScrollView{
    
     return objc_getAssociatedObject(self, key);
@@ -35,7 +32,7 @@ static const char * key = "keyScrollView";
 }
 
 //定义关联的Key
-static const char * navBarBackgroundImageKey = "navBarBackgroundImage";
+static const char *navBarBackgroundImageKey = "navBarBackgroundImage";
 - (UIImage *)navBarBackgroundImage{
     return objc_getAssociatedObject(self, navBarBackgroundImageKey);
 }
@@ -45,7 +42,7 @@ static const char * navBarBackgroundImageKey = "navBarBackgroundImage";
 }
 
 //定义关联的Key
-static const char * scrolOffsetYKey = "offsetY";
+static const char *scrolOffsetYKey = "offsetY";
 - (CGFloat)scrolOffsetY{
     
     return [objc_getAssociatedObject(self, scrolOffsetYKey) floatValue];
@@ -54,6 +51,18 @@ static const char * scrolOffsetYKey = "offsetY";
 - (void)setScrolOffsetY:(CGFloat)scrolOffsetY{
     
     objc_setAssociatedObject(self, scrolOffsetYKey, @(scrolOffsetY), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+//定义关联的Key
+static const char  *alphaKey = "alpha";
+- (CGFloat)alpha{
+    
+    return [objc_getAssociatedObject(self, alphaKey) floatValue];
+}
+
+- (void)setAlpha:(CGFloat)alpha{
+    
+    objc_setAssociatedObject(self, alphaKey, @(alpha), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 //定义关联的Key
@@ -99,17 +108,15 @@ static const char * hy_hidenControlOptionsKey = "hy_hidenControlOptions";
     [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:1];
 }
 
-
 #pragma mark - *********************** 内部方法 **********************
 
-static CGFloat alpha = 0;
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
     
     CGFloat offsetY = self.scrolOffsetY;
     CGPoint point = self.keyScrollView.contentOffset;
-    alpha =  point.y/offsetY;
-    alpha = (alpha <= 0)?0:alpha;
-    alpha = (alpha >= 1)?1:alpha;
+    self.alpha =  point.y/offsetY;
+    self.alpha = (self.alpha <= 0)?0:self.alpha;
+    self.alpha = (self.alpha >= 1)?1:self.alpha;
     [self setNavSubViewsAlpha];
 
 }
@@ -117,10 +124,10 @@ static CGFloat alpha = 0;
 
 - (void)setNavSubViewsAlpha {
     
-    self.navigationItem.leftBarButtonItem.customView.alpha = self.hy_hidenControlOptions & 1?alpha:1;
-    self.navigationItem.titleView.alpha = self.hy_hidenControlOptions >> 1 & 1 ?alpha:1;
-    self.navigationItem.rightBarButtonItem.customView.alpha = self.hy_hidenControlOptions >> 2 & 1?alpha:1;
-    [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:alpha];
+    self.navigationItem.leftBarButtonItem.customView.alpha = self.hy_hidenControlOptions & 1?self.alpha:1;
+    self.navigationItem.titleView.alpha = self.hy_hidenControlOptions >> 1 & 1 ?self.alpha:1;
+    self.navigationItem.rightBarButtonItem.customView.alpha = self.hy_hidenControlOptions >> 2 & 1?self.alpha:1;
+    [[[self.navigationController.navigationBar subviews]objectAtIndex:0] setAlpha:self.alpha];
 }
 
 @end
