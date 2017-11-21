@@ -8,7 +8,7 @@
 使用过程中发现bug请先下载最新版，若bug依旧存在，请及时反馈，谢谢
 
 
-#HYNavBarHidden的优点<通过分类和继承两种方案实现,大家各凭喜好使用,继承方案源码较简单，可以先看继承方案，熟悉实现原理>
+# HYNavBarHidden的优点<通过分类和继承两种方案实现,大家各凭喜好使用,继承方案源码较简单，可以先看继承方案，熟悉实现原理>
 ---
 1.文件少，代码简洁,不依赖其他第三方库
 
@@ -29,7 +29,7 @@
       - (void)hy_viewWillDisappear:(BOOL)animated;
       - (void)hy_viewDidDisappear:(BOOL)animated;
 
-#warning 
+# warning 
 
 由于导航控制器有push和pop操作,当有下级控制器时,则两个控制器共用一个导航条.侧滑时,导航条的效果有点瑕疵(边缘侧滑回上个控制器的时候，透明度有闪一下恢复的效果)
 解决方案和思路(根据不同的需求自行选择)
@@ -40,7 +40,7 @@
 
 3.pop出来的控制器中，隐藏导航条，用自定义的一个view充当导航条。这样可以完美的解决，并且不需要调用分类中 三个生命周期中的方法。(hy_viewWillAppear:,
 hy_viewWillDisappear,hy_viewDidDisappear:)
-#效果演示
+# 效果演示
 ---
 ![1.gif](http://upload-images.jianshu.io/upload_images/1338042-b49f8c85cef44460.gif?imageMogr2/auto-orient/strip)
 
